@@ -1,0 +1,20 @@
+2026-03-14 00:20:08,858 | INFO | bcc-bank-exchange | BANK LOGGER STARTED
+{
+  "logged_at": "2026-03-13T21:20:08.858786+00:00",
+  "bank_log_file": "G:\\programming\\bitrix-python\\bcc_bank_exchange.log",
+  "merchant": "00000001",
+  "terminal": "88888881",
+  "notify_url": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/notify",
+  "backref": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref"
+}
+2026-03-14 00:20:42,545 | INFO | bcc-bank-exchange | BANK REDIRECT PREPARED
+{
+  "logged_at": "2026-03-13T21:20:42.545465+00:00",
+  "order_id": "20260313212036000739797751",
+  "deal_id": 73979,
+  "token": "***redacted***",
+  "bcc_url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "amount": "3919.55",
+  "currency": "398",
+  "client_ip": "80.246.31.99"
+}
