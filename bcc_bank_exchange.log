@@ -18,3 +18,2047 @@
   "currency": "398",
   "client_ip": "80.246.31.99"
 }
+2026-03-19 16:12:59,457 | INFO | bcc-bank-exchange | BANK LOGGER STARTED
+{
+  "logged_at": "2026-03-19T13:12:59.457907+00:00",
+  "bank_log_file": "G:\\programming\\bitrix-python\\bcc_bank_exchange.log",
+  "merchant": "00000001",
+  "terminal": "88888881",
+  "notify_url": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/notify",
+  "backref": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+  "notify_basic_enabled": true,
+  "bank_log_full_http": false
+}
+2026-03-19 16:18:30,532 | INFO | bcc-bank-exchange | BANK REDIRECT PREPARED
+{
+  "logged_at": "2026-03-19T13:18:30.532353+00:00",
+  "order_id": "20260319131809000739796447",
+  "deal_id": 73979,
+  "token": "***redacted***",
+  "bcc_url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "amount": "3919.55",
+  "currency": "398",
+  "client_ip": "62.197.149.104"
+}
+2026-03-19 16:19:28,087 | INFO | bcc-bank-exchange | BANK BACKREF CALLBACK
+{
+  "logged_at": "2026-03-19T13:19:28.087715+00:00",
+  "source": "backref",
+  "method": "POST",
+  "payload": {
+    "ACTION": "2",
+    "RC": "91",
+    "RC_TEXT": "Недоступен банк клиента",
+    "APPROVAL": "",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "3919.55",
+    "CARD_MASK": "***redacted***",
+    "DIAG_CODE": "NONE",
+    "DIAG_CODE_TEXT": "No errors",
+    "TERMINAL": "88888881",
+    "TRTYPE": "1",
+    "AMOUNT": "3919.55",
+    "CURRENCY": "398",
+    "ORDER": "20260319131809000739796447",
+    "RRN": "607822086004",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "NAME": "S A",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260319131912",
+    "CVC2_RC": "***redacted***",
+    "INT_REF": "03181FB4CB1E780E",
+    "MERCH_GMT": "0",
+    "DESC": "Petru Reaboi за GG764GD по счету ZK20251024-1 Зеленая Карта",
+    "NONCE": "FF1EC9F5FE26FFAAD65391A283318C51",
+    "MERCH_RN_ID": "JPAYUOLGDYS2DMIN",
+    "MERCH_TRAN_STATE": "",
+    "RECUR_FREQ": "",
+    "RECUR_EXP": "",
+    "MERCH_TOKEN_ID": "***redacted***"
+  },
+  "important_fields": {
+    "RC": "91",
+    "APPROVAL": "",
+    "ACTION": "2",
+    "ORDER": "20260319131809000739796447",
+    "TRTYPE": "1",
+    "RRN": "607822086004",
+    "INT_REF": "03181FB4CB1E780E",
+    "AMOUNT": "3919.55",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-19 16:20:42,293 | INFO | bcc-bank-exchange | BANK REDIRECT PREPARED
+{
+  "logged_at": "2026-03-19T13:20:42.293592+00:00",
+  "order_id": "20260319131809000739796447",
+  "deal_id": 73979,
+  "token": "***redacted***",
+  "bcc_url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "amount": "3919.55",
+  "currency": "398",
+  "client_ip": "62.197.149.104"
+}
+2026-03-19 17:06:37,458 | INFO | bcc-bank-exchange | BANK LOGGER STARTED
+{
+  "logged_at": "2026-03-19T14:06:37.458759+00:00",
+  "bank_log_file": "G:\\programming\\bitrix-python\\bcc_bank_exchange.log",
+  "merchant": "00000001",
+  "terminal": "88888881",
+  "notify_url": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/notify",
+  "backref": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+  "notify_basic_enabled": false,
+  "bank_log_full_http": false
+}
+2026-03-19 17:08:37,881 | INFO | bcc-bank-exchange | BANK LOGGER STARTED
+{
+  "logged_at": "2026-03-19T14:08:37.881317+00:00",
+  "bank_log_file": "G:\\programming\\bitrix-python\\bcc_bank_exchange.log",
+  "merchant": "00000001",
+  "terminal": "88888881",
+  "notify_url": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/notify",
+  "backref": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+  "notify_basic_enabled": false,
+  "bank_log_full_http": false
+}
+2026-03-19 17:09:40,475 | INFO | bcc-bank-exchange | BANK REDIRECT PREPARED
+{
+  "logged_at": "2026-03-19T14:09:40.475690+00:00",
+  "order_id": "20260319140915000739796828",
+  "deal_id": 73979,
+  "token": "***redacted***",
+  "bcc_url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "amount": "3919.55",
+  "currency": "398",
+  "client_ip": "62.197.149.104"
+}
+2026-03-19 17:10:12,393 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-19T14:10:12.393220+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "0",
+    "RC": "00",
+    "RC_TEXT": "ÐÐ°Ð²ÐµÑÑÐµÐ½Ð¾ ÑÑÐ¿ÐµÑÐ½Ð¾",
+    "APPROVAL": "857391",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "3919.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "1",
+    "AMOUNT": "3919.55",
+    "CURRENCY": "398",
+    "ORDER": "20260319140915000739796828",
+    "RRN": "607822086007",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "NAME": "S A",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260319141011",
+    "CVC2_RC": "***redacted***",
+    "INT_REF": "091BCCFD93574A69",
+    "MERCH_GMT": "0",
+    "DESC": "Petru Reaboi Ð·Ð° GG764GD Ð¿Ð¾ ÑÑÐµÑÑ ZK20251024-1 ÐÐµÐ»ÐµÐ½Ð°Ñ ÐÐ°ÑÑÐ°",
+    "NONCE": "ACFDB92D28839F9B23574E508068E445",
+    "MERCH_RN_ID": "VY23TBYM3XAU1RFP",
+    "MERCH_TRAN_STATE": "",
+    "RECUR_FREQ": "",
+    "RECUR_EXP": "",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "CLIENT_IP": "62.197.149.104",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "00",
+    "APPROVAL": "857391",
+    "ACTION": "0",
+    "ORDER": "20260319140915000739796828",
+    "TRTYPE": "1",
+    "RRN": "607822086007",
+    "INT_REF": "091BCCFD93574A69",
+    "AMOUNT": "3919.55",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-19 17:10:12,897 | INFO | bcc-bank-exchange | BANK OUTGOING REQUEST
+{
+  "logged_at": "2026-03-19T14:10:12.897845+00:00",
+  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "payload": {
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "ORDER": "20260319140915000739796828",
+    "TIMESTAMP": "20260319141012",
+    "MERCH_GMT": "0",
+    "NONCE": "1AF3725F3E8270A404D2DB0A3742B1B8",
+    "P_SIGN": "***redacted***",
+    "NOTIFY_URL": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/notify"
+  },
+  "important_fields": {
+    "ORDER": "20260319140915000739796828",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-19 17:10:14,391 | INFO | bcc-bank-exchange | BANK INCOMING RESPONSE
+{
+  "logged_at": "2026-03-19T14:10:14.390214+00:00",
+  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "response": {
+    "status_code": 200,
+    "reason_phrase": "OK",
+    "content_type": "application/json; charset=utf-8",
+    "content_length": 726,
+    "headers": {
+      "content-type": "application/json; charset=utf-8"
+    },
+    "request": {
+      "method": "POST",
+      "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+      "headers": {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      "content_length": 276,
+      "body_kind": "key_value",
+      "parsed_body": {
+        "TERMINAL": "88888881",
+        "TRTYPE": "90",
+        "TRAN_TRTYPE": "1",
+        "ORDER": "20260319140915000739796828",
+        "TIMESTAMP": "20260319141012",
+        "MERCH_GMT": "0",
+        "NONCE": "1AF3725F3E8270A404D2DB0A3742B1B8",
+        "P_SIGN": "***redacted***",
+        "NOTIFY_URL": "https%3A%2F%2Fhhhjt6m4-8080.euw.devtunnels.ms%3A443%2Fbcc%2Fnotify"
+      },
+      "important_fields": {
+        "ORDER": "20260319140915000739796828",
+        "TRTYPE": "90",
+        "TRAN_TRTYPE": "1",
+        "TERMINAL": "88888881"
+      }
+    },
+    "body_kind": "json",
+    "parsed_body": {
+      "TERMINAL": "88888881",
+      "ACTION": "0",
+      "RC": "00",
+      "RC_TEXT": "Завершено успешно",
+      "APPROVAL": "857391",
+      "TRAN_CUR_NAME": "KZT",
+      "TRAN_AMOUNT": "3919.55",
+      "CARD_MASK": "***redacted***",
+      "TRAN_DATE": "2026.03.19 19:10:09",
+      "AMOUNT": "3919.55",
+      "CURRENCY": "398",
+      "ORDER": "20260319140915000739796828",
+      "RRN": "607822086007",
+      "MERCHANT": "00000001",
+      "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+      "P_SIGN": "***redacted***",
+      "INT_REF": "091BCCFD93574A69",
+      "MERCH_NAME": "TOO STRAHOVOY BROKER DIONIS",
+      "DESC": "Petru Reaboi за GG764GD по счету ZK20251024-1 Зеленая Карта",
+      "NONCE": "ACFDB92D28839F9B23574E508068E445",
+      "TRAN_TRTYPE": "1",
+      "MERCH_TOKEN_ID": "***redacted***",
+      "TIMESTAMP": "20260319141014"
+    },
+    "important_fields": {
+      "RC": "00",
+      "APPROVAL": "857391",
+      "ACTION": "0",
+      "ORDER": "20260319140915000739796828",
+      "TRAN_TRTYPE": "1",
+      "RRN": "607822086007",
+      "INT_REF": "091BCCFD93574A69",
+      "AMOUNT": "3919.55",
+      "CURRENCY": "398",
+      "TERMINAL": "88888881"
+    }
+  }
+}
+2026-03-19 17:10:15,258 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-19T14:10:15.258130+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "0",
+    "RC": "00",
+    "RC_TEXT": "ÐÐ°Ð²ÐµÑÑÐµÐ½Ð¾ ÑÑÐ¿ÐµÑÐ½Ð¾",
+    "APPROVAL": "857391",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "3919.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "AMOUNT": "3919.55",
+    "CURRENCY": "398",
+    "ORDER": "20260319140915000739796828",
+    "RRN": "607822086007",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "EMAIL": "",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260319141014",
+    "INT_REF": "091BCCFD93574A69",
+    "ORG_AMOUNT": "",
+    "MERCH_NAME": "TOO STRAHOVOY BROKER DIONIS",
+    "MERCH_GMT": "0",
+    "BRANDS": "VISA, Mastercard",
+    "DESC": "Petru Reaboi Ð·Ð° GG764GD Ð¿Ð¾ ÑÑÐµÑÑ ZK20251024-1 ÐÐµÐ»ÐµÐ½Ð°Ñ ÐÐ°ÑÑÐ°",
+    "NONCE": "ACFDB92D28839F9B23574E508068E445",
+    "TRAN_TRTYPE": "1",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "MERCH_PAYTO_TOKEN_ID": "***redacted***",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "00",
+    "APPROVAL": "857391",
+    "ACTION": "0",
+    "ORDER": "20260319140915000739796828",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "RRN": "607822086007",
+    "INT_REF": "091BCCFD93574A69",
+    "AMOUNT": "3919.55",
+    "ORG_AMOUNT": "",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-19 17:10:17,554 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-19T14:10:17.554345+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "0",
+    "RC": "00",
+    "RC_TEXT": "ÐÐ°Ð²ÐµÑÑÐµÐ½Ð¾ ÑÑÐ¿ÐµÑÐ½Ð¾",
+    "APPROVAL": "857391",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "3919.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "AMOUNT": "3919.55",
+    "CURRENCY": "398",
+    "ORDER": "20260319140915000739796828",
+    "RRN": "607822086007",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "EMAIL": "",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260319141014",
+    "INT_REF": "091BCCFD93574A69",
+    "ORG_AMOUNT": "",
+    "MERCH_NAME": "TOO STRAHOVOY BROKER DIONIS",
+    "MERCH_GMT": "0",
+    "BRANDS": "VISA, Mastercard",
+    "DESC": "Petru Reaboi Ð·Ð° GG764GD Ð¿Ð¾ ÑÑÐµÑÑ ZK20251024-1 ÐÐµÐ»ÐµÐ½Ð°Ñ ÐÐ°ÑÑÐ°",
+    "NONCE": "ACFDB92D28839F9B23574E508068E445",
+    "TRAN_TRTYPE": "1",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "MERCH_PAYTO_TOKEN_ID": "***redacted***",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "00",
+    "APPROVAL": "857391",
+    "ACTION": "0",
+    "ORDER": "20260319140915000739796828",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "RRN": "607822086007",
+    "INT_REF": "091BCCFD93574A69",
+    "AMOUNT": "3919.55",
+    "ORG_AMOUNT": "",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-19 17:17:05,316 | INFO | bcc-bank-exchange | BANK OUTGOING REQUEST
+{
+  "logged_at": "2026-03-19T14:17:05.316690+00:00",
+  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "payload": {
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "ORDER": "20260319140915000739796828",
+    "TIMESTAMP": "20260319141705",
+    "MERCH_GMT": "0",
+    "NONCE": "FEE3764B96C705C7F8A7DC81A1773E1D",
+    "P_SIGN": "***redacted***",
+    "NOTIFY_URL": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/notify"
+  },
+  "important_fields": {
+    "ORDER": "20260319140915000739796828",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-19 17:17:06,639 | INFO | bcc-bank-exchange | BANK INCOMING RESPONSE
+{
+  "logged_at": "2026-03-19T14:17:06.638555+00:00",
+  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "response": {
+    "status_code": 200,
+    "reason_phrase": "OK",
+    "content_type": "application/json; charset=utf-8",
+    "content_length": 726,
+    "headers": {
+      "content-type": "application/json; charset=utf-8"
+    },
+    "request": {
+      "method": "POST",
+      "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+      "headers": {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      "content_length": 276,
+      "body_kind": "key_value",
+      "parsed_body": {
+        "TERMINAL": "88888881",
+        "TRTYPE": "90",
+        "TRAN_TRTYPE": "1",
+        "ORDER": "20260319140915000739796828",
+        "TIMESTAMP": "20260319141705",
+        "MERCH_GMT": "0",
+        "NONCE": "FEE3764B96C705C7F8A7DC81A1773E1D",
+        "P_SIGN": "***redacted***",
+        "NOTIFY_URL": "https%3A%2F%2Fhhhjt6m4-8080.euw.devtunnels.ms%3A443%2Fbcc%2Fnotify"
+      },
+      "important_fields": {
+        "ORDER": "20260319140915000739796828",
+        "TRTYPE": "90",
+        "TRAN_TRTYPE": "1",
+        "TERMINAL": "88888881"
+      }
+    },
+    "body_kind": "json",
+    "parsed_body": {
+      "TERMINAL": "88888881",
+      "ACTION": "0",
+      "RC": "00",
+      "RC_TEXT": "Завершено успешно",
+      "APPROVAL": "857391",
+      "TRAN_CUR_NAME": "KZT",
+      "TRAN_AMOUNT": "3919.55",
+      "CARD_MASK": "***redacted***",
+      "TRAN_DATE": "2026.03.19 19:10:09",
+      "AMOUNT": "3919.55",
+      "CURRENCY": "398",
+      "ORDER": "20260319140915000739796828",
+      "RRN": "607822086007",
+      "MERCHANT": "00000001",
+      "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+      "P_SIGN": "***redacted***",
+      "INT_REF": "091BCCFD93574A69",
+      "MERCH_NAME": "TOO STRAHOVOY BROKER DIONIS",
+      "DESC": "Petru Reaboi за GG764GD по счету ZK20251024-1 Зеленая Карта",
+      "NONCE": "ACFDB92D28839F9B23574E508068E445",
+      "TRAN_TRTYPE": "1",
+      "MERCH_TOKEN_ID": "***redacted***",
+      "TIMESTAMP": "20260319141707"
+    },
+    "important_fields": {
+      "RC": "00",
+      "APPROVAL": "857391",
+      "ACTION": "0",
+      "ORDER": "20260319140915000739796828",
+      "TRAN_TRTYPE": "1",
+      "RRN": "607822086007",
+      "INT_REF": "091BCCFD93574A69",
+      "AMOUNT": "3919.55",
+      "CURRENCY": "398",
+      "TERMINAL": "88888881"
+    }
+  }
+}
+2026-03-19 17:17:07,661 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-19T14:17:07.661911+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "0",
+    "RC": "00",
+    "RC_TEXT": "ÐÐ°Ð²ÐµÑÑÐµÐ½Ð¾ ÑÑÐ¿ÐµÑÐ½Ð¾",
+    "APPROVAL": "857391",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "3919.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "AMOUNT": "3919.55",
+    "CURRENCY": "398",
+    "ORDER": "20260319140915000739796828",
+    "RRN": "607822086007",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "EMAIL": "",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260319141707",
+    "INT_REF": "091BCCFD93574A69",
+    "ORG_AMOUNT": "",
+    "MERCH_NAME": "TOO STRAHOVOY BROKER DIONIS",
+    "MERCH_GMT": "0",
+    "BRANDS": "VISA, Mastercard",
+    "DESC": "Petru Reaboi Ð·Ð° GG764GD Ð¿Ð¾ ÑÑÐµÑÑ ZK20251024-1 ÐÐµÐ»ÐµÐ½Ð°Ñ ÐÐ°ÑÑÐ°",
+    "NONCE": "ACFDB92D28839F9B23574E508068E445",
+    "TRAN_TRTYPE": "1",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "MERCH_PAYTO_TOKEN_ID": "***redacted***",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "00",
+    "APPROVAL": "857391",
+    "ACTION": "0",
+    "ORDER": "20260319140915000739796828",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "RRN": "607822086007",
+    "INT_REF": "091BCCFD93574A69",
+    "AMOUNT": "3919.55",
+    "ORG_AMOUNT": "",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-19 17:17:09,259 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-19T14:17:09.259629+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "0",
+    "RC": "00",
+    "RC_TEXT": "ÐÐ°Ð²ÐµÑÑÐµÐ½Ð¾ ÑÑÐ¿ÐµÑÐ½Ð¾",
+    "APPROVAL": "857391",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "3919.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "AMOUNT": "3919.55",
+    "CURRENCY": "398",
+    "ORDER": "20260319140915000739796828",
+    "RRN": "607822086007",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "EMAIL": "",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260319141707",
+    "INT_REF": "091BCCFD93574A69",
+    "ORG_AMOUNT": "",
+    "MERCH_NAME": "TOO STRAHOVOY BROKER DIONIS",
+    "MERCH_GMT": "0",
+    "BRANDS": "VISA, Mastercard",
+    "DESC": "Petru Reaboi Ð·Ð° GG764GD Ð¿Ð¾ ÑÑÐµÑÑ ZK20251024-1 ÐÐµÐ»ÐµÐ½Ð°Ñ ÐÐ°ÑÑÐ°",
+    "NONCE": "ACFDB92D28839F9B23574E508068E445",
+    "TRAN_TRTYPE": "1",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "MERCH_PAYTO_TOKEN_ID": "***redacted***",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "00",
+    "APPROVAL": "857391",
+    "ACTION": "0",
+    "ORDER": "20260319140915000739796828",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "RRN": "607822086007",
+    "INT_REF": "091BCCFD93574A69",
+    "AMOUNT": "3919.55",
+    "ORG_AMOUNT": "",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-19 17:18:18,925 | INFO | bcc-bank-exchange | BANK OUTGOING REQUEST
+{
+  "logged_at": "2026-03-19T14:18:18.925658+00:00",
+  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "payload": {
+    "ORG_AMOUNT": "3919.55",
+    "AMOUNT": "3000.00",
+    "CURRENCY": "398",
+    "ORDER": "20260319140915000739796828",
+    "MERCH_RN_ID": "VY23TBYM3XAU1RFP",
+    "RRN": "607822086007",
+    "INT_REF": "091BCCFD93574A69",
+    "TERMINAL": "88888881",
+    "TIMESTAMP": "20260319141818",
+    "MERCH_GMT": "0",
+    "TRTYPE": "14",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "LANG": "ru",
+    "NONCE": "F51A9C276E735E2A2B32C3F4AC603674",
+    "P_SIGN": "***redacted***",
+    "NOTIFY_URL": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/notify"
+  },
+  "important_fields": {
+    "ORDER": "20260319140915000739796828",
+    "TRTYPE": "14",
+    "RRN": "607822086007",
+    "INT_REF": "091BCCFD93574A69",
+    "AMOUNT": "3000.00",
+    "ORG_AMOUNT": "3919.55",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-19 17:18:25,907 | INFO | bcc-bank-exchange | BANK INCOMING RESPONSE
+{
+  "logged_at": "2026-03-19T14:18:25.907167+00:00",
+  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "response": {
+    "status_code": 200,
+    "reason_phrase": "OK",
+    "content_type": "application/json; charset=UTF-8",
+    "content_length": 511,
+    "headers": {
+      "content-type": "application/json; charset=UTF-8"
+    },
+    "request": {
+      "method": "POST",
+      "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+      "headers": {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      "content_length": 464,
+      "body_kind": "key_value",
+      "parsed_body": {
+        "ORG_AMOUNT": "3919.55",
+        "AMOUNT": "3000.00",
+        "CURRENCY": "398",
+        "ORDER": "20260319140915000739796828",
+        "MERCH_RN_ID": "VY23TBYM3XAU1RFP",
+        "RRN": "607822086007",
+        "INT_REF": "091BCCFD93574A69",
+        "TERMINAL": "88888881",
+        "TIMESTAMP": "20260319141818",
+        "MERCH_GMT": "0",
+        "TRTYPE": "14",
+        "BACKREF": "https%3A%2F%2Fhhhjt6m4-8080.euw.devtunnels.ms%3A443%2Fbcc%2Fbackref",
+        "LANG": "ru",
+        "NONCE": "F51A9C276E735E2A2B32C3F4AC603674",
+        "P_SIGN": "***redacted***",
+        "NOTIFY_URL": "https%3A%2F%2Fhhhjt6m4-8080.euw.devtunnels.ms%3A443%2Fbcc%2Fnotify"
+      },
+      "important_fields": {
+        "ORDER": "20260319140915000739796828",
+        "TRTYPE": "14",
+        "RRN": "607822086007",
+        "INT_REF": "091BCCFD93574A69",
+        "AMOUNT": "3000.00",
+        "ORG_AMOUNT": "3919.55",
+        "CURRENCY": "398",
+        "TERMINAL": "88888881"
+      }
+    },
+    "body_kind": "json",
+    "parsed_body": {
+      "ACTION": "0",
+      "RC": "00",
+      "RC_TEXT": "Завершено успешно",
+      "APPROVAL": "857391",
+      "TERMINAL": "88888881",
+      "TRTYPE": "14",
+      "AMOUNT": "3000.00",
+      "CURRENCY": "398",
+      "ORDER": "20260319140915000739796828",
+      "RRN": "607822086007",
+      "LANG": "ru",
+      "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+      "P_SIGN": "***redacted***",
+      "TIMESTAMP": "20260319141826",
+      "INT_REF": "091BCCFD93574A69",
+      "ORG_AMOUNT": "3919.55",
+      "MERCH_GMT": "0",
+      "NONCE": "F51A9C276E735E2A2B32C3F4AC603674",
+      "MERCH_RN_ID": "VY23TBYM3XAU1RFP"
+    },
+    "important_fields": {
+      "RC": "00",
+      "APPROVAL": "857391",
+      "ACTION": "0",
+      "ORDER": "20260319140915000739796828",
+      "TRTYPE": "14",
+      "RRN": "607822086007",
+      "INT_REF": "091BCCFD93574A69",
+      "AMOUNT": "3000.00",
+      "ORG_AMOUNT": "3919.55",
+      "CURRENCY": "398",
+      "TERMINAL": "88888881"
+    }
+  }
+}
+2026-03-19 17:18:27,019 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-19T14:18:27.018824+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "0",
+    "RC": "00",
+    "RC_TEXT": "ÐÐ°Ð²ÐµÑÑÐµÐ½Ð¾ ÑÑÐ¿ÐµÑÐ½Ð¾",
+    "APPROVAL": "857391",
+    "TERMINAL": "88888881",
+    "TRTYPE": "14",
+    "AMOUNT": "3000.00",
+    "CURRENCY": "398",
+    "ORDER": "20260319140915000739796828",
+    "RRN": "607822086007",
+    "LANG": "ru",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260319141826",
+    "INT_REF": "091BCCFD93574A69",
+    "ORG_AMOUNT": "3919.55",
+    "MERCH_GMT": "0",
+    "NONCE": "F51A9C276E735E2A2B32C3F4AC603674",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "00",
+    "APPROVAL": "857391",
+    "ACTION": "0",
+    "ORDER": "20260319140915000739796828",
+    "TRTYPE": "14",
+    "RRN": "607822086007",
+    "INT_REF": "091BCCFD93574A69",
+    "AMOUNT": "3000.00",
+    "ORG_AMOUNT": "3919.55",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-19 17:18:27,146 | INFO | bcc-bank-exchange | BANK OUTGOING REQUEST
+{
+  "logged_at": "2026-03-19T14:18:27.146014+00:00",
+  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "payload": {
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "14",
+    "ORDER": "20260319140915000739796828",
+    "TIMESTAMP": "20260319141827",
+    "MERCH_GMT": "0",
+    "NONCE": "E18906DAE6F28786327B775B4AD70CE9",
+    "P_SIGN": "***redacted***",
+    "NOTIFY_URL": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/notify"
+  },
+  "important_fields": {
+    "ORDER": "20260319140915000739796828",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "14",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-19 17:18:28,051 | INFO | bcc-bank-exchange | BANK INCOMING RESPONSE
+{
+  "logged_at": "2026-03-19T14:18:28.050111+00:00",
+  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "response": {
+    "status_code": 200,
+    "reason_phrase": "OK",
+    "content_type": "application/json; charset=utf-8",
+    "content_length": 532,
+    "headers": {
+      "content-type": "application/json; charset=utf-8"
+    },
+    "request": {
+      "method": "POST",
+      "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+      "headers": {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      "content_length": 277,
+      "body_kind": "key_value",
+      "parsed_body": {
+        "TERMINAL": "88888881",
+        "TRTYPE": "90",
+        "TRAN_TRTYPE": "14",
+        "ORDER": "20260319140915000739796828",
+        "TIMESTAMP": "20260319141827",
+        "MERCH_GMT": "0",
+        "NONCE": "E18906DAE6F28786327B775B4AD70CE9",
+        "P_SIGN": "***redacted***",
+        "NOTIFY_URL": "https%3A%2F%2Fhhhjt6m4-8080.euw.devtunnels.ms%3A443%2Fbcc%2Fnotify"
+      },
+      "important_fields": {
+        "ORDER": "20260319140915000739796828",
+        "TRTYPE": "90",
+        "TRAN_TRTYPE": "14",
+        "TERMINAL": "88888881"
+      }
+    },
+    "body_kind": "json",
+    "parsed_body": {
+      "TERMINAL": "88888881",
+      "ACTION": "0",
+      "RC": "00",
+      "RC_TEXT": "Завершено успешно",
+      "APPROVAL": "857391",
+      "TRAN_CUR_NAME": "KZT",
+      "TRAN_AMOUNT": "919.55",
+      "TRAN_DATE": "2026.03.19 19:18:20",
+      "AMOUNT": "3000.00",
+      "CURRENCY": "398",
+      "ORDER": "20260319140915000739796828",
+      "RRN": "607822086007",
+      "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+      "P_SIGN": "***redacted***",
+      "INT_REF": "091BCCFD93574A69",
+      "ORG_AMOUNT": "3919.55",
+      "NONCE": "F51A9C276E735E2A2B32C3F4AC603674",
+      "TRAN_TRTYPE": "14",
+      "TIMESTAMP": "20260319141828"
+    },
+    "important_fields": {
+      "RC": "00",
+      "APPROVAL": "857391",
+      "ACTION": "0",
+      "ORDER": "20260319140915000739796828",
+      "TRAN_TRTYPE": "14",
+      "RRN": "607822086007",
+      "INT_REF": "091BCCFD93574A69",
+      "AMOUNT": "3000.00",
+      "ORG_AMOUNT": "3919.55",
+      "CURRENCY": "398",
+      "TERMINAL": "88888881"
+    }
+  }
+}
+2026-03-19 17:18:28,747 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-19T14:18:28.747840+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "0",
+    "RC": "00",
+    "RC_TEXT": "ÐÐ°Ð²ÐµÑÑÐµÐ½Ð¾ ÑÑÐ¿ÐµÑÐ½Ð¾",
+    "APPROVAL": "857391",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "919.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "AMOUNT": "3000.00",
+    "CURRENCY": "398",
+    "ORDER": "20260319140915000739796828",
+    "RRN": "607822086007",
+    "MERCHANT": "",
+    "LANG": "ru",
+    "EMAIL": "",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260319141828",
+    "INT_REF": "091BCCFD93574A69",
+    "ORG_AMOUNT": "3919.55",
+    "MERCH_NAME": "",
+    "MERCH_GMT": "0",
+    "BRANDS": "",
+    "DESC": "",
+    "NONCE": "F51A9C276E735E2A2B32C3F4AC603674",
+    "TRAN_TRTYPE": "14",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "MERCH_PAYTO_TOKEN_ID": "***redacted***",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "00",
+    "APPROVAL": "857391",
+    "ACTION": "0",
+    "ORDER": "20260319140915000739796828",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "14",
+    "RRN": "607822086007",
+    "INT_REF": "091BCCFD93574A69",
+    "AMOUNT": "3000.00",
+    "ORG_AMOUNT": "3919.55",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-19 17:18:54,249 | INFO | bcc-bank-exchange | BANK OUTGOING REQUEST
+{
+  "logged_at": "2026-03-19T14:18:54.249250+00:00",
+  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "payload": {
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "ORDER": "20260319140915000739796828",
+    "TIMESTAMP": "20260319141854",
+    "MERCH_GMT": "0",
+    "NONCE": "AFD9D8E70F1D64E27F0EDC6CFAEA9E2B",
+    "P_SIGN": "***redacted***",
+    "NOTIFY_URL": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/notify"
+  },
+  "important_fields": {
+    "ORDER": "20260319140915000739796828",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-19 17:18:55,349 | INFO | bcc-bank-exchange | BANK INCOMING RESPONSE
+{
+  "logged_at": "2026-03-19T14:18:55.348823+00:00",
+  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "response": {
+    "status_code": 200,
+    "reason_phrase": "OK",
+    "content_type": "application/json; charset=utf-8",
+    "content_length": 726,
+    "headers": {
+      "content-type": "application/json; charset=utf-8"
+    },
+    "request": {
+      "method": "POST",
+      "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+      "headers": {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      "content_length": 276,
+      "body_kind": "key_value",
+      "parsed_body": {
+        "TERMINAL": "88888881",
+        "TRTYPE": "90",
+        "TRAN_TRTYPE": "1",
+        "ORDER": "20260319140915000739796828",
+        "TIMESTAMP": "20260319141854",
+        "MERCH_GMT": "0",
+        "NONCE": "AFD9D8E70F1D64E27F0EDC6CFAEA9E2B",
+        "P_SIGN": "***redacted***",
+        "NOTIFY_URL": "https%3A%2F%2Fhhhjt6m4-8080.euw.devtunnels.ms%3A443%2Fbcc%2Fnotify"
+      },
+      "important_fields": {
+        "ORDER": "20260319140915000739796828",
+        "TRTYPE": "90",
+        "TRAN_TRTYPE": "1",
+        "TERMINAL": "88888881"
+      }
+    },
+    "body_kind": "json",
+    "parsed_body": {
+      "TERMINAL": "88888881",
+      "ACTION": "0",
+      "RC": "00",
+      "RC_TEXT": "Завершено успешно",
+      "APPROVAL": "857391",
+      "TRAN_CUR_NAME": "KZT",
+      "TRAN_AMOUNT": "3919.55",
+      "CARD_MASK": "***redacted***",
+      "TRAN_DATE": "2026.03.19 19:10:09",
+      "AMOUNT": "3919.55",
+      "CURRENCY": "398",
+      "ORDER": "20260319140915000739796828",
+      "RRN": "607822086007",
+      "MERCHANT": "00000001",
+      "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+      "P_SIGN": "***redacted***",
+      "INT_REF": "091BCCFD93574A69",
+      "MERCH_NAME": "TOO STRAHOVOY BROKER DIONIS",
+      "DESC": "Petru Reaboi за GG764GD по счету ZK20251024-1 Зеленая Карта",
+      "NONCE": "ACFDB92D28839F9B23574E508068E445",
+      "TRAN_TRTYPE": "1",
+      "MERCH_TOKEN_ID": "***redacted***",
+      "TIMESTAMP": "20260319141855"
+    },
+    "important_fields": {
+      "RC": "00",
+      "APPROVAL": "857391",
+      "ACTION": "0",
+      "ORDER": "20260319140915000739796828",
+      "TRAN_TRTYPE": "1",
+      "RRN": "607822086007",
+      "INT_REF": "091BCCFD93574A69",
+      "AMOUNT": "3919.55",
+      "CURRENCY": "398",
+      "TERMINAL": "88888881"
+    }
+  }
+}
+2026-03-19 17:20:37,479 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-19T14:20:37.479059+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "0",
+    "RC": "00",
+    "RC_TEXT": "ÐÐ°Ð²ÐµÑÑÐµÐ½Ð¾ ÑÑÐ¿ÐµÑÐ½Ð¾",
+    "APPROVAL": "857391",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "3919.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "AMOUNT": "3919.55",
+    "CURRENCY": "398",
+    "ORDER": "20260319140915000739796828",
+    "RRN": "607822086007",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "EMAIL": "",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260319141855",
+    "INT_REF": "091BCCFD93574A69",
+    "ORG_AMOUNT": "",
+    "MERCH_NAME": "TOO STRAHOVOY BROKER DIONIS",
+    "MERCH_GMT": "0",
+    "BRANDS": "VISA, Mastercard",
+    "DESC": "Petru Reaboi Ð·Ð° GG764GD Ð¿Ð¾ ÑÑÐµÑÑ ZK20251024-1 ÐÐµÐ»ÐµÐ½Ð°Ñ ÐÐ°ÑÑÐ°",
+    "NONCE": "ACFDB92D28839F9B23574E508068E445",
+    "TRAN_TRTYPE": "1",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "MERCH_PAYTO_TOKEN_ID": "***redacted***",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "00",
+    "APPROVAL": "857391",
+    "ACTION": "0",
+    "ORDER": "20260319140915000739796828",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "RRN": "607822086007",
+    "INT_REF": "091BCCFD93574A69",
+    "AMOUNT": "3919.55",
+    "ORG_AMOUNT": "",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-24 13:38:56,077 | INFO | bcc-bank-exchange | BANK LOGGER STARTED
+{
+  "logged_at": "2026-03-24T10:38:56.077558+00:00",
+  "bank_log_file": "G:\\programming\\bitrix-python\\bcc_bank_exchange.log",
+  "merchant": "00000001",
+  "terminal": "88888881",
+  "notify_url": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/notify",
+  "backref": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+  "notify_basic_enabled": false,
+  "bank_log_full_http": false
+}
+2026-03-24 13:43:23,729 | INFO | bcc-bank-exchange | BANK REDIRECT PREPARED
+{
+  "logged_at": "2026-03-24T10:43:23.729158+00:00",
+  "order_id": "20260324104309000757078161",
+  "deal_id": 75707,
+  "token": "***redacted***",
+  "bcc_url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "amount": "399.55",
+  "currency": "398",
+  "client_ip": "62.197.149.116"
+}
+2026-03-26 15:05:29,214 | INFO | bcc-bank-exchange | BANK LOGGER STARTED
+{
+  "logged_at": "2026-03-26T12:05:29.214364+00:00",
+  "bank_log_file": "G:\\programming\\bitrix-python\\bcc_bank_exchange.log",
+  "merchant": "00000001",
+  "terminal": "88888881",
+  "notify_url": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/notify",
+  "backref": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+  "notify_basic_enabled": false,
+  "bank_log_full_http": false
+}
+2026-03-26 15:27:44,768 | INFO | bcc-bank-exchange | BANK REDIRECT PREPARED
+{
+  "logged_at": "2026-03-26T12:27:44.768320+00:00",
+  "order_id": "20260326122733000761751880",
+  "deal_id": 76175,
+  "token": "***redacted***",
+  "bcc_url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "amount": "3399.55",
+  "currency": "398",
+  "client_ip": "62.197.149.111"
+}
+2026-03-26 15:28:42,785 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-26T12:28:42.785854+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "2",
+    "RC": "78",
+    "RC_TEXT": "ÐÐ¿ÐµÑÐ°ÑÐ¸Ñ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð°",
+    "APPROVAL": "",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "3399.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "1",
+    "AMOUNT": "3399.55",
+    "CURRENCY": "398",
+    "ORDER": "20260326122733000761751880",
+    "RRN": "608521266095",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "NAME": "S A",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260326122842",
+    "CVC2_RC": "***redacted***",
+    "INT_REF": "0922974DECB59A9C",
+    "MERCH_GMT": "0",
+    "DESC": "Petru Reaboi Ð·Ð° GG764GD Ð¿Ð¾ ÑÑÐµÑÑ ZKD5896-5/7 ÐÐµÐ»ÐµÐ½Ð°Ñ ÐÐ°ÑÑÐ°",
+    "NONCE": "C9882A4C74BF2108FF5960B38C0610C8",
+    "MERCH_RN_ID": "UTF7HBFIU3XY7VC7",
+    "MERCH_TRAN_STATE": "",
+    "RECUR_FREQ": "",
+    "RECUR_EXP": "",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "CLIENT_IP": "62.197.149.111",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "78",
+    "APPROVAL": "",
+    "ACTION": "2",
+    "ORDER": "20260326122733000761751880",
+    "TRTYPE": "1",
+    "RRN": "608521266095",
+    "INT_REF": "0922974DECB59A9C",
+    "AMOUNT": "3399.55",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-26 15:28:43,351 | INFO | bcc-bank-exchange | BANK OUTGOING REQUEST
+{
+  "logged_at": "2026-03-26T12:28:43.351431+00:00",
+  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "payload": {
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "ORDER": "20260326122733000761751880",
+    "TIMESTAMP": "20260326122843",
+    "MERCH_GMT": "0",
+    "NONCE": "1A17D274C5DA6FC768496740826BD195",
+    "P_SIGN": "***redacted***",
+    "NOTIFY_URL": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/notify"
+  },
+  "important_fields": {
+    "ORDER": "20260326122733000761751880",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-26 15:28:44,125 | INFO | bcc-bank-exchange | BANK INCOMING RESPONSE
+{
+  "logged_at": "2026-03-26T12:28:44.124265+00:00",
+  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "response": {
+    "status_code": 200,
+    "reason_phrase": "OK",
+    "content_type": "application/json; charset=utf-8",
+    "content_length": 655,
+    "headers": {
+      "content-type": "application/json; charset=utf-8"
+    },
+    "request": {
+      "method": "POST",
+      "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+      "headers": {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      "content_length": 276,
+      "body_kind": "key_value",
+      "parsed_body": {
+        "TERMINAL": "88888881",
+        "TRTYPE": "90",
+        "TRAN_TRTYPE": "1",
+        "ORDER": "20260326122733000761751880",
+        "TIMESTAMP": "20260326122843",
+        "MERCH_GMT": "0",
+        "NONCE": "1A17D274C5DA6FC768496740826BD195",
+        "P_SIGN": "***redacted***",
+        "NOTIFY_URL": "https%3A%2F%2Fhhhjt6m4-8080.euw.devtunnels.ms%3A443%2Fbcc%2Fnotify"
+      },
+      "important_fields": {
+        "ORDER": "20260326122733000761751880",
+        "TRTYPE": "90",
+        "TRAN_TRTYPE": "1",
+        "TERMINAL": "88888881"
+      }
+    },
+    "body_kind": "json",
+    "parsed_body": {
+      "TERMINAL": "88888881",
+      "ACTION": "2",
+      "RC": "78",
+      "RC_TEXT": "Операция не найдена",
+      "TRAN_CUR_NAME": "KZT",
+      "TRAN_AMOUNT": "3399.55",
+      "CARD_MASK": "***redacted***",
+      "TRAN_DATE": "2026.03.26 17:28:39",
+      "AMOUNT": "3399.55",
+      "CURRENCY": "398",
+      "ORDER": "20260326122733000761751880",
+      "RRN": "608521266095",
+      "MERCHANT": "00000001",
+      "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+      "P_SIGN": "***redacted***",
+      "INT_REF": "0922974DECB59A9C",
+      "MERCH_NAME": "TOO STRAHOVOY BROKER DIONIS",
+      "DESC": "Petru Reaboi за GG764GD по счету ZKD5896-5/7 Зеленая Карта",
+      "NONCE": "C9882A4C74BF2108FF5960B38C0610C8",
+      "TRAN_TRTYPE": "1",
+      "TIMESTAMP": "20260326122844"
+    },
+    "important_fields": {
+      "RC": "78",
+      "ACTION": "2",
+      "ORDER": "20260326122733000761751880",
+      "TRAN_TRTYPE": "1",
+      "RRN": "608521266095",
+      "INT_REF": "0922974DECB59A9C",
+      "AMOUNT": "3399.55",
+      "CURRENCY": "398",
+      "TERMINAL": "88888881"
+    }
+  }
+}
+2026-03-26 15:28:45,231 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-26T12:28:45.230895+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "2",
+    "RC": "78",
+    "RC_TEXT": "ÐÐ¿ÐµÑÐ°ÑÐ¸Ñ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð°",
+    "APPROVAL": "",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "3399.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "AMOUNT": "3399.55",
+    "CURRENCY": "398",
+    "ORDER": "20260326122733000761751880",
+    "RRN": "608521266095",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "EMAIL": "",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260326122844",
+    "INT_REF": "0922974DECB59A9C",
+    "ORG_AMOUNT": "",
+    "MERCH_NAME": "TOO STRAHOVOY BROKER DIONIS",
+    "MERCH_GMT": "0",
+    "BRANDS": "VISA, Mastercard",
+    "DESC": "Petru Reaboi Ð·Ð° GG764GD Ð¿Ð¾ ÑÑÐµÑÑ ZKD5896-5/7 ÐÐµÐ»ÐµÐ½Ð°Ñ ÐÐ°ÑÑÐ°",
+    "NONCE": "C9882A4C74BF2108FF5960B38C0610C8",
+    "TRAN_TRTYPE": "1",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "MERCH_PAYTO_TOKEN_ID": "***redacted***",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "78",
+    "APPROVAL": "",
+    "ACTION": "2",
+    "ORDER": "20260326122733000761751880",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "RRN": "608521266095",
+    "INT_REF": "0922974DECB59A9C",
+    "AMOUNT": "3399.55",
+    "ORG_AMOUNT": "",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-26 15:28:45,994 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-26T12:28:45.994474+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "2",
+    "RC": "78",
+    "RC_TEXT": "ÐÐ¿ÐµÑÐ°ÑÐ¸Ñ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð°",
+    "APPROVAL": "",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "3399.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "1",
+    "AMOUNT": "3399.55",
+    "CURRENCY": "398",
+    "ORDER": "20260326122733000761751880",
+    "RRN": "608521266095",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "NAME": "S A",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260326122842",
+    "CVC2_RC": "***redacted***",
+    "INT_REF": "0922974DECB59A9C",
+    "MERCH_GMT": "0",
+    "DESC": "Petru Reaboi Ð·Ð° GG764GD Ð¿Ð¾ ÑÑÐµÑÑ ZKD5896-5/7 ÐÐµÐ»ÐµÐ½Ð°Ñ ÐÐ°ÑÑÐ°",
+    "NONCE": "C9882A4C74BF2108FF5960B38C0610C8",
+    "MERCH_RN_ID": "UTF7HBFIU3XY7VC7",
+    "MERCH_TRAN_STATE": "",
+    "RECUR_FREQ": "",
+    "RECUR_EXP": "",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "CLIENT_IP": "62.197.149.111",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "78",
+    "APPROVAL": "",
+    "ACTION": "2",
+    "ORDER": "20260326122733000761751880",
+    "TRTYPE": "1",
+    "RRN": "608521266095",
+    "INT_REF": "0922974DECB59A9C",
+    "AMOUNT": "3399.55",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-26 15:28:47,421 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-26T12:28:47.421013+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "2",
+    "RC": "78",
+    "RC_TEXT": "ÐÐ¿ÐµÑÐ°ÑÐ¸Ñ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð°",
+    "APPROVAL": "",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "3399.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "AMOUNT": "3399.55",
+    "CURRENCY": "398",
+    "ORDER": "20260326122733000761751880",
+    "RRN": "608521266095",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "EMAIL": "",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260326122844",
+    "INT_REF": "0922974DECB59A9C",
+    "ORG_AMOUNT": "",
+    "MERCH_NAME": "TOO STRAHOVOY BROKER DIONIS",
+    "MERCH_GMT": "0",
+    "BRANDS": "VISA, Mastercard",
+    "DESC": "Petru Reaboi Ð·Ð° GG764GD Ð¿Ð¾ ÑÑÐµÑÑ ZKD5896-5/7 ÐÐµÐ»ÐµÐ½Ð°Ñ ÐÐ°ÑÑÐ°",
+    "NONCE": "C9882A4C74BF2108FF5960B38C0610C8",
+    "TRAN_TRTYPE": "1",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "MERCH_PAYTO_TOKEN_ID": "***redacted***",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "78",
+    "APPROVAL": "",
+    "ACTION": "2",
+    "ORDER": "20260326122733000761751880",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "RRN": "608521266095",
+    "INT_REF": "0922974DECB59A9C",
+    "AMOUNT": "3399.55",
+    "ORG_AMOUNT": "",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-26 15:32:16,428 | INFO | bcc-bank-exchange | BANK REDIRECT PREPARED
+{
+  "logged_at": "2026-03-26T12:32:16.428585+00:00",
+  "order_id": "20260326123210000761779465",
+  "deal_id": 76177,
+  "token": "***redacted***",
+  "bcc_url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "amount": "3399.55",
+  "currency": "398",
+  "client_ip": "62.197.149.111"
+}
+2026-03-26 15:32:28,311 | INFO | bcc-bank-exchange | BANK REDIRECT PREPARED
+{
+  "logged_at": "2026-03-26T12:32:28.311682+00:00",
+  "order_id": "20260326123210000761779465",
+  "deal_id": 76177,
+  "token": "***redacted***",
+  "bcc_url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "amount": "3399.55",
+  "currency": "398",
+  "client_ip": "62.197.149.111"
+}
+2026-03-26 15:33:12,926 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-26T12:33:12.925886+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "0",
+    "RC": "00",
+    "RC_TEXT": "ÐÐ°Ð²ÐµÑÑÐµÐ½Ð¾ ÑÑÐ¿ÐµÑÐ½Ð¾",
+    "APPROVAL": "631214",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "3399.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "1",
+    "AMOUNT": "3399.55",
+    "CURRENCY": "398",
+    "ORDER": "20260326123210000761779465",
+    "RRN": "608522087095",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "NAME": "S A",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260326123312",
+    "CVC2_RC": "***redacted***",
+    "INT_REF": "5D45F240AF47A98C",
+    "MERCH_GMT": "0",
+    "DESC": "Petru Reaboi Ð·Ð° GG764GD Ð¿Ð¾ ÑÑÐµÑÑ ZKD5896-5/72 ÐÐµÐ»ÐµÐ½Ð°Ñ ÐÐ°ÑÑÐ°",
+    "NONCE": "5D1576EDDE699F8487CE90E50B2FA6AB",
+    "MERCH_RN_ID": "P14NPYFKEH297W7U",
+    "MERCH_TRAN_STATE": "",
+    "RECUR_FREQ": "",
+    "RECUR_EXP": "",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "CLIENT_IP": "62.197.149.111",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "00",
+    "APPROVAL": "631214",
+    "ACTION": "0",
+    "ORDER": "20260326123210000761779465",
+    "TRTYPE": "1",
+    "RRN": "608522087095",
+    "INT_REF": "5D45F240AF47A98C",
+    "AMOUNT": "3399.55",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-26 15:33:13,510 | INFO | bcc-bank-exchange | BANK OUTGOING REQUEST
+{
+  "logged_at": "2026-03-26T12:33:13.510406+00:00",
+  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "payload": {
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "ORDER": "20260326123210000761779465",
+    "TIMESTAMP": "20260326123313",
+    "MERCH_GMT": "0",
+    "NONCE": "21B76C6CEE7ACD3CE1BAA1A42B6E515F",
+    "P_SIGN": "***redacted***",
+    "NOTIFY_URL": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/notify"
+  },
+  "important_fields": {
+    "ORDER": "20260326123210000761779465",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-26 15:33:14,073 | INFO | bcc-bank-exchange | BANK INCOMING RESPONSE
+{
+  "logged_at": "2026-03-26T12:33:14.073440+00:00",
+  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "response": {
+    "status_code": 200,
+    "reason_phrase": "OK",
+    "content_type": "application/json; charset=utf-8",
+    "content_length": 726,
+    "headers": {
+      "content-type": "application/json; charset=utf-8"
+    },
+    "request": {
+      "method": "POST",
+      "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+      "headers": {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      "content_length": 276,
+      "body_kind": "key_value",
+      "parsed_body": {
+        "TERMINAL": "88888881",
+        "TRTYPE": "90",
+        "TRAN_TRTYPE": "1",
+        "ORDER": "20260326123210000761779465",
+        "TIMESTAMP": "20260326123313",
+        "MERCH_GMT": "0",
+        "NONCE": "21B76C6CEE7ACD3CE1BAA1A42B6E515F",
+        "P_SIGN": "***redacted***",
+        "NOTIFY_URL": "https%3A%2F%2Fhhhjt6m4-8080.euw.devtunnels.ms%3A443%2Fbcc%2Fnotify"
+      },
+      "important_fields": {
+        "ORDER": "20260326123210000761779465",
+        "TRTYPE": "90",
+        "TRAN_TRTYPE": "1",
+        "TERMINAL": "88888881"
+      }
+    },
+    "body_kind": "json",
+    "parsed_body": {
+      "TERMINAL": "88888881",
+      "ACTION": "0",
+      "RC": "00",
+      "RC_TEXT": "Завершено успешно",
+      "APPROVAL": "631214",
+      "TRAN_CUR_NAME": "KZT",
+      "TRAN_AMOUNT": "3399.55",
+      "CARD_MASK": "***redacted***",
+      "TRAN_DATE": "2026.03.26 17:33:10",
+      "AMOUNT": "3399.55",
+      "CURRENCY": "398",
+      "ORDER": "20260326123210000761779465",
+      "RRN": "608522087095",
+      "MERCHANT": "00000001",
+      "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+      "P_SIGN": "***redacted***",
+      "INT_REF": "5D45F240AF47A98C",
+      "MERCH_NAME": "TOO STRAHOVOY BROKER DIONIS",
+      "DESC": "Petru Reaboi за GG764GD по счету ZKD5896-5/72 Зеленая Карта",
+      "NONCE": "5D1576EDDE699F8487CE90E50B2FA6AB",
+      "TRAN_TRTYPE": "1",
+      "MERCH_TOKEN_ID": "***redacted***",
+      "TIMESTAMP": "20260326123314"
+    },
+    "important_fields": {
+      "RC": "00",
+      "APPROVAL": "631214",
+      "ACTION": "0",
+      "ORDER": "20260326123210000761779465",
+      "TRAN_TRTYPE": "1",
+      "RRN": "608522087095",
+      "INT_REF": "5D45F240AF47A98C",
+      "AMOUNT": "3399.55",
+      "CURRENCY": "398",
+      "TERMINAL": "88888881"
+    }
+  }
+}
+2026-03-26 15:33:14,935 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-26T12:33:14.935495+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "0",
+    "RC": "00",
+    "RC_TEXT": "ÐÐ°Ð²ÐµÑÑÐµÐ½Ð¾ ÑÑÐ¿ÐµÑÐ½Ð¾",
+    "APPROVAL": "631214",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "3399.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "AMOUNT": "3399.55",
+    "CURRENCY": "398",
+    "ORDER": "20260326123210000761779465",
+    "RRN": "608522087095",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "EMAIL": "",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260326123314",
+    "INT_REF": "5D45F240AF47A98C",
+    "ORG_AMOUNT": "",
+    "MERCH_NAME": "TOO STRAHOVOY BROKER DIONIS",
+    "MERCH_GMT": "0",
+    "BRANDS": "VISA, Mastercard",
+    "DESC": "Petru Reaboi Ð·Ð° GG764GD Ð¿Ð¾ ÑÑÐµÑÑ ZKD5896-5/72 ÐÐµÐ»ÐµÐ½Ð°Ñ ÐÐ°ÑÑÐ°",
+    "NONCE": "5D1576EDDE699F8487CE90E50B2FA6AB",
+    "TRAN_TRTYPE": "1",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "MERCH_PAYTO_TOKEN_ID": "***redacted***",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "00",
+    "APPROVAL": "631214",
+    "ACTION": "0",
+    "ORDER": "20260326123210000761779465",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "RRN": "608522087095",
+    "INT_REF": "5D45F240AF47A98C",
+    "AMOUNT": "3399.55",
+    "ORG_AMOUNT": "",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-26 15:33:16,742 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-26T12:33:16.742515+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "0",
+    "RC": "00",
+    "RC_TEXT": "ÐÐ°Ð²ÐµÑÑÐµÐ½Ð¾ ÑÑÐ¿ÐµÑÐ½Ð¾",
+    "APPROVAL": "631214",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "3399.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "1",
+    "AMOUNT": "3399.55",
+    "CURRENCY": "398",
+    "ORDER": "20260326123210000761779465",
+    "RRN": "608522087095",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "NAME": "S A",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260326123312",
+    "CVC2_RC": "***redacted***",
+    "INT_REF": "5D45F240AF47A98C",
+    "MERCH_GMT": "0",
+    "DESC": "Petru Reaboi Ð·Ð° GG764GD Ð¿Ð¾ ÑÑÐµÑÑ ZKD5896-5/72 ÐÐµÐ»ÐµÐ½Ð°Ñ ÐÐ°ÑÑÐ°",
+    "NONCE": "5D1576EDDE699F8487CE90E50B2FA6AB",
+    "MERCH_RN_ID": "P14NPYFKEH297W7U",
+    "MERCH_TRAN_STATE": "",
+    "RECUR_FREQ": "",
+    "RECUR_EXP": "",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "CLIENT_IP": "62.197.149.111",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "00",
+    "APPROVAL": "631214",
+    "ACTION": "0",
+    "ORDER": "20260326123210000761779465",
+    "TRTYPE": "1",
+    "RRN": "608522087095",
+    "INT_REF": "5D45F240AF47A98C",
+    "AMOUNT": "3399.55",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-26 15:33:16,780 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-26T12:33:16.780677+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "0",
+    "RC": "00",
+    "RC_TEXT": "ÐÐ°Ð²ÐµÑÑÐµÐ½Ð¾ ÑÑÐ¿ÐµÑÐ½Ð¾",
+    "APPROVAL": "631214",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "3399.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "AMOUNT": "3399.55",
+    "CURRENCY": "398",
+    "ORDER": "20260326123210000761779465",
+    "RRN": "608522087095",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "EMAIL": "",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260326123314",
+    "INT_REF": "5D45F240AF47A98C",
+    "ORG_AMOUNT": "",
+    "MERCH_NAME": "TOO STRAHOVOY BROKER DIONIS",
+    "MERCH_GMT": "0",
+    "BRANDS": "VISA, Mastercard",
+    "DESC": "Petru Reaboi Ð·Ð° GG764GD Ð¿Ð¾ ÑÑÐµÑÑ ZKD5896-5/72 ÐÐµÐ»ÐµÐ½Ð°Ñ ÐÐ°ÑÑÐ°",
+    "NONCE": "5D1576EDDE699F8487CE90E50B2FA6AB",
+    "TRAN_TRTYPE": "1",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "MERCH_PAYTO_TOKEN_ID": "***redacted***",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "00",
+    "APPROVAL": "631214",
+    "ACTION": "0",
+    "ORDER": "20260326123210000761779465",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "RRN": "608522087095",
+    "INT_REF": "5D45F240AF47A98C",
+    "AMOUNT": "3399.55",
+    "ORG_AMOUNT": "",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-27 15:51:09,961 | INFO | bcc-bank-exchange | BANK LOGGER STARTED
+{
+  "logged_at": "2026-03-27T12:51:09.961148+00:00",
+  "bank_log_file": "G:\\programming\\bitrix-python\\bcc_bank_exchange.log",
+  "merchant": "00000001",
+  "terminal": "88888881",
+  "notify_url": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/notify",
+  "backref": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+  "notify_basic_enabled": false,
+  "bank_log_full_http": false
+}
+2026-03-27 15:52:44,047 | INFO | bcc-bank-exchange | BANK REDIRECT PREPARED
+{
+  "logged_at": "2026-03-27T12:52:44.047724+00:00",
+  "order_id": "20260327125233000762579534",
+  "deal_id": 76257,
+  "token": "***redacted***",
+  "bcc_url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "amount": "1349.55",
+  "currency": "398",
+  "client_ip": "62.197.149.124"
+}
+2026-03-27 15:53:26,534 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-27T12:53:26.534393+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "0",
+    "RC": "00",
+    "RC_TEXT": "ÐÐ°Ð²ÐµÑÑÐµÐ½Ð¾ ÑÑÐ¿ÐµÑÐ½Ð¾",
+    "APPROVAL": "631226",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "1349.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "1",
+    "AMOUNT": "1349.55",
+    "CURRENCY": "398",
+    "ORDER": "20260327125233000762579534",
+    "RRN": "608621266121",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "NAME": "S A",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260327125325",
+    "CVC2_RC": "***redacted***",
+    "INT_REF": "F4B559DFE081273F",
+    "MERCH_GMT": "0",
+    "DESC": "Petru Reaboi Ð·Ð° GG764GD Ð¿Ð¾ ÑÑÐµÑÑ ZKD5896Ð°Ð¿Ð¾Ñ ÐÐµÐ»ÐµÐ½Ð°Ñ ÐÐ°ÑÑÐ°",
+    "NONCE": "B202ABC46E524D77183D204CE79230FA",
+    "MERCH_RN_ID": "FIBI2TQW19Q5PX98",
+    "MERCH_TRAN_STATE": "",
+    "RECUR_FREQ": "",
+    "RECUR_EXP": "",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "CLIENT_IP": "62.197.149.124",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "00",
+    "APPROVAL": "631226",
+    "ACTION": "0",
+    "ORDER": "20260327125233000762579534",
+    "TRTYPE": "1",
+    "RRN": "608621266121",
+    "INT_REF": "F4B559DFE081273F",
+    "AMOUNT": "1349.55",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-27 15:53:27,122 | INFO | bcc-bank-exchange | BANK OUTGOING REQUEST
+{
+  "logged_at": "2026-03-27T12:53:27.122043+00:00",
+  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "payload": {
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "ORDER": "20260327125233000762579534",
+    "TIMESTAMP": "20260327125327",
+    "MERCH_GMT": "0",
+    "NONCE": "89CF8DC9C50587D4259E61BCA3C3BBCA",
+    "P_SIGN": "***redacted***",
+    "NOTIFY_URL": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/notify"
+  },
+  "important_fields": {
+    "ORDER": "20260327125233000762579534",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-27 15:53:28,036 | INFO | bcc-bank-exchange | BANK INCOMING RESPONSE
+{
+  "logged_at": "2026-03-27T12:53:28.035143+00:00",
+  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "response": {
+    "status_code": 200,
+    "reason_phrase": "OK",
+    "content_type": "application/json; charset=utf-8",
+    "content_length": 725,
+    "headers": {
+      "content-type": "application/json; charset=utf-8"
+    },
+    "request": {
+      "method": "POST",
+      "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+      "headers": {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      "content_length": 276,
+      "body_kind": "key_value",
+      "parsed_body": {
+        "TERMINAL": "88888881",
+        "TRTYPE": "90",
+        "TRAN_TRTYPE": "1",
+        "ORDER": "20260327125233000762579534",
+        "TIMESTAMP": "20260327125327",
+        "MERCH_GMT": "0",
+        "NONCE": "89CF8DC9C50587D4259E61BCA3C3BBCA",
+        "P_SIGN": "***redacted***",
+        "NOTIFY_URL": "https%3A%2F%2Fhhhjt6m4-8080.euw.devtunnels.ms%3A443%2Fbcc%2Fnotify"
+      },
+      "important_fields": {
+        "ORDER": "20260327125233000762579534",
+        "TRTYPE": "90",
+        "TRAN_TRTYPE": "1",
+        "TERMINAL": "88888881"
+      }
+    },
+    "body_kind": "json",
+    "parsed_body": {
+      "TERMINAL": "88888881",
+      "ACTION": "0",
+      "RC": "00",
+      "RC_TEXT": "Завершено успешно",
+      "APPROVAL": "631226",
+      "TRAN_CUR_NAME": "KZT",
+      "TRAN_AMOUNT": "1349.55",
+      "CARD_MASK": "***redacted***",
+      "TRAN_DATE": "2026.03.27 17:53:23",
+      "AMOUNT": "1349.55",
+      "CURRENCY": "398",
+      "ORDER": "20260327125233000762579534",
+      "RRN": "608621266121",
+      "MERCHANT": "00000001",
+      "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+      "P_SIGN": "***redacted***",
+      "INT_REF": "F4B559DFE081273F",
+      "MERCH_NAME": "TOO STRAHOVOY BROKER DIONIS",
+      "DESC": "Petru Reaboi за GG764GD по счету ZKD5896апор Зеленая Карта",
+      "NONCE": "B202ABC46E524D77183D204CE79230FA",
+      "TRAN_TRTYPE": "1",
+      "MERCH_TOKEN_ID": "***redacted***",
+      "TIMESTAMP": "20260327125328"
+    },
+    "important_fields": {
+      "RC": "00",
+      "APPROVAL": "631226",
+      "ACTION": "0",
+      "ORDER": "20260327125233000762579534",
+      "TRAN_TRTYPE": "1",
+      "RRN": "608621266121",
+      "INT_REF": "F4B559DFE081273F",
+      "AMOUNT": "1349.55",
+      "CURRENCY": "398",
+      "TERMINAL": "88888881"
+    }
+  }
+}
+2026-03-27 15:53:29,745 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-27T12:53:29.744903+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "0",
+    "RC": "00",
+    "RC_TEXT": "ÐÐ°Ð²ÐµÑÑÐµÐ½Ð¾ ÑÑÐ¿ÐµÑÐ½Ð¾",
+    "APPROVAL": "631226",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "1349.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "AMOUNT": "1349.55",
+    "CURRENCY": "398",
+    "ORDER": "20260327125233000762579534",
+    "RRN": "608621266121",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "EMAIL": "",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260327125328",
+    "INT_REF": "F4B559DFE081273F",
+    "ORG_AMOUNT": "",
+    "MERCH_NAME": "TOO STRAHOVOY BROKER DIONIS",
+    "MERCH_GMT": "0",
+    "BRANDS": "VISA, Mastercard",
+    "DESC": "Petru Reaboi Ð·Ð° GG764GD Ð¿Ð¾ ÑÑÐµÑÑ ZKD5896Ð°Ð¿Ð¾Ñ ÐÐµÐ»ÐµÐ½Ð°Ñ ÐÐ°ÑÑÐ°",
+    "NONCE": "B202ABC46E524D77183D204CE79230FA",
+    "TRAN_TRTYPE": "1",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "MERCH_PAYTO_TOKEN_ID": "***redacted***",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "00",
+    "APPROVAL": "631226",
+    "ACTION": "0",
+    "ORDER": "20260327125233000762579534",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "RRN": "608621266121",
+    "INT_REF": "F4B559DFE081273F",
+    "AMOUNT": "1349.55",
+    "ORG_AMOUNT": "",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}
+2026-03-27 15:53:31,171 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-03-27T12:53:31.171116+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "0",
+    "RC": "00",
+    "RC_TEXT": "ÐÐ°Ð²ÐµÑÑÐµÐ½Ð¾ ÑÑÐ¿ÐµÑÐ½Ð¾",
+    "APPROVAL": "631226",
+    "TRAN_CUR_NAME": "KZT",
+    "TRAN_AMOUNT": "1349.55",
+    "CARD_MASK": "***redacted***",
+    "TERMINAL": "88888881",
+    "TRTYPE": "90",
+    "AMOUNT": "1349.55",
+    "CURRENCY": "398",
+    "ORDER": "20260327125233000762579534",
+    "RRN": "608621266121",
+    "MERCHANT": "00000001",
+    "LANG": "ru",
+    "EMAIL": "",
+    "BACKREF": "https://hhhjt6m4-8080.euw.devtunnels.ms:443/bcc/backref",
+    "P_SIGN": "***redacted***",
+    "TIMESTAMP": "20260327125328",
+    "INT_REF": "F4B559DFE081273F",
+    "ORG_AMOUNT": "",
+    "MERCH_NAME": "TOO STRAHOVOY BROKER DIONIS",
+    "MERCH_GMT": "0",
+    "BRANDS": "VISA, Mastercard",
+    "DESC": "Petru Reaboi Ð·Ð° GG764GD Ð¿Ð¾ ÑÑÐµÑÑ ZKD5896Ð°Ð¿Ð¾Ñ ÐÐµÐ»ÐµÐ½Ð°Ñ ÐÐ°ÑÑÐ°",
+    "NONCE": "B202ABC46E524D77183D204CE79230FA",
+    "TRAN_TRTYPE": "1",
+    "MERCH_TOKEN_ID": "***redacted***",
+    "MERCH_PAYTO_TOKEN_ID": "***redacted***",
+    "_auth_header_present": "***redacted***",
+    "_method": "POST",
+    "_content_type": "application/x-www-form-urlencoded",
+    "_client_ip": "91.198.63.59"
+  },
+  "important_fields": {
+    "RC": "00",
+    "APPROVAL": "631226",
+    "ACTION": "0",
+    "ORDER": "20260327125233000762579534",
+    "TRTYPE": "90",
+    "TRAN_TRTYPE": "1",
+    "RRN": "608621266121",
+    "INT_REF": "F4B559DFE081273F",
+    "AMOUNT": "1349.55",
+    "ORG_AMOUNT": "",
+    "CURRENCY": "398",
+    "TERMINAL": "88888881"
+  }
+}

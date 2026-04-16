@@ -162,6 +162,12 @@ BANK_LOG_INCLUDE_SENSITIVE=true
 ```bash
 tail -f bcc_bank_exchange.log
 ```
+## Рабочие команды
+systemctl restart bcc
+systemctl stop bcc
+systemctl start bcc
+systemctl status bcc
+journalctl -u bcc -f
 
 ## Документация для не-программистов
 
