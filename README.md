@@ -168,6 +168,13 @@ systemctl stop bcc
 systemctl start bcc
 systemctl status bcc
 journalctl -u bcc -f
+## Для деплоя рабочая последовательность такая:
+cd /opt/bcc
+git pull origin main
+systemctl restart bcc
+systemctl status bcc --no-pager -l
+curl -I http://127.0.0.1:8080/docs
+curl -I https://pay.dionis-insurance.kz/docs
 
 ## Документация для не-программистов
 
