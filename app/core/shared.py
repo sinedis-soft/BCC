@@ -721,7 +721,7 @@ def bank_log_incoming_response(url: str, response: httpx.Response) -> None:
 
 def bank_log_notify_callback(data: dict, method: str) -> None:
     safe_payload = dict(data)
-    if "Authorization" in safe_payload:
+    if "Authorization" in safe_payload and not should_include_sensitive_bank_log_data():
         safe_payload["Authorization"] = "***redacted***"
 
     bank_log_json(

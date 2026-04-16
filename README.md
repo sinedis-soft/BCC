@@ -130,6 +130,10 @@ BANK_LOG_INCLUDE_SENSITIVE=true
 ```
 
 Если включён test-only режим (`BANK_LOG_FULL_HTTP=true`, `BANK_LOG_INCLUDE_SENSITIVE=true`, `BCC_MERCHANT=00000001`), те же поля будут записаны без маскирования.
+Если вы всё равно видите `***redacted***`, проверьте:
+- точно ли одновременно включены `BANK_LOG_FULL_HTTP=true` и `BANK_LOG_INCLUDE_SENSITIVE=true`,
+- точно ли мерчант тестовый (`BCC_MERCHANT=00000001`),
+- поле может приходить уже замаскированным от банка (например, `CARD_MASK`), это не редактирование со стороны сервиса.
 
 Отдельно: запись вида `BANK NOTIFY CALLBACK` с `"method": "POST"` — это тоже POST, но **входящий** (банк -> наш сервис), а не исходящий (наш сервис -> банк). Пример:
 
