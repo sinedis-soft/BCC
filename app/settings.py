@@ -69,6 +69,7 @@ class Settings(BaseSettings):
     bank_log_max_bytes: int = Field(10 * 1024 * 1024, alias="BANK_LOG_MAX_BYTES")
     bank_log_backup_count: int = Field(10, alias="BANK_LOG_BACKUP_COUNT")
     bank_log_full_http: bool = Field(False, alias="BANK_LOG_FULL_HTTP")
+    bank_log_include_sensitive: bool = Field(False, alias="BANK_LOG_INCLUDE_SENSITIVE")
 
     sqlite_busy_timeout_ms: int = Field(30000, alias="SQLITE_BUSY_TIMEOUT_MS")
 

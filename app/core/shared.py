@@ -566,8 +566,10 @@ def extract_important_bank_fields(data: Any) -> dict:
 
 def sanitize_headers_for_log(headers: Any, *, full: bool) -> dict:
     raw_headers = dict(headers or {})
+    include_sensitive = should_include_sensitive_bank_log_data()
+
     if full:
-        return redact_for_log(raw_headers)
+        return raw_headers if include_sensitive else redact_for_log(raw_headers)
 
     selected = {}
     for key in ("content-type", "location", "authorization"):
@@ -575,11 +577,20 @@ def sanitize_headers_for_log(headers: Any, *, full: bool) -> dict:
             selected[key] = raw_headers[key]
         elif key.title() in raw_headers:
             selected[key.title()] = raw_headers[key.title()]
-    return redact_for_log(selected)
+    return selected if include_sensitive else redact_for_log(selected)
+
+
+def should_include_sensitive_bank_log_data() -> bool:
+    return bool(
+        getattr(settings, "bank_log_full_http", False)
+        and getattr(settings, "bank_log_include_sensitive", False)
+        and settings.is_test_merchant
+    )
 
 
 def sanitize_httpx_request_for_log(request: httpx.Request) -> dict:
     full_http = bool(getattr(settings, "bank_log_full_http", False))
+    include_sensitive = should_include_sensitive_bank_log_data()
     body_bytes = request.content or b""
     text = body_bytes.decode("utf-8", errors="replace") if isinstance(body_bytes, (bytes, bytearray)) else str(body_bytes or "")
     parsed_kv = parse_key_value_text(text) if text else None
@@ -593,7 +604,7 @@ def sanitize_httpx_request_for_log(request: httpx.Request) -> dict:
 
     if parsed_kv is not None:
         meta["body_kind"] = "key_value"
-        meta["parsed_body"] = redact_for_log(parsed_kv)
+        meta["parsed_body"] = parsed_kv if include_sensitive else redact_for_log(parsed_kv)
         meta["important_fields"] = extract_important_bank_fields(parsed_kv)
         if full_http:
             meta["raw_text"] = text
@@ -610,6 +621,7 @@ def sanitize_httpx_request_for_log(request: httpx.Request) -> dict:
 
 def sanitize_bank_response_for_log(response: httpx.Response) -> dict:
     full_http = bool(getattr(settings, "bank_log_full_http", False))
+    include_sensitive = should_include_sensitive_bank_log_data()
     content_type = response.headers.get("content-type", "")
     text = response.text or ""
     parsed_json = None
@@ -634,18 +646,18 @@ def sanitize_bank_response_for_log(response: httpx.Response) -> dict:
 
     if isinstance(parsed_json, dict):
         meta["body_kind"] = "json"
-        meta["parsed_body"] = redact_for_log(parsed_json)
+        meta["parsed_body"] = parsed_json if include_sensitive else redact_for_log(parsed_json)
         meta["important_fields"] = extract_important_bank_fields(parsed_json)
         return meta
 
     if isinstance(parsed_json, list):
         meta["body_kind"] = "json_list"
-        meta["parsed_body"] = redact_for_log(parsed_json)
+        meta["parsed_body"] = parsed_json if include_sensitive else redact_for_log(parsed_json)
         return meta
 
     if parsed_kv is not None:
         meta["body_kind"] = "key_value"
-        meta["parsed_body"] = redact_for_log(parsed_kv)
+        meta["parsed_body"] = parsed_kv if include_sensitive else redact_for_log(parsed_kv)
         meta["important_fields"] = extract_important_bank_fields(parsed_kv)
         return meta
 
@@ -666,7 +678,8 @@ def sanitize_bank_response_for_log(response: httpx.Response) -> dict:
 
 def bank_log_json(title: str, data: Any, level: int = logging.INFO) -> None:
     try:
-        safe_data = redact_for_log(data)
+        include_sensitive = should_include_sensitive_bank_log_data()
+        safe_data = data if include_sensitive else redact_for_log(data)
         if isinstance(safe_data, (dict, list, tuple)):
             payload = json.dumps(safe_data, ensure_ascii=False, indent=2, default=str)
         else:

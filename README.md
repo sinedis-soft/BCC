@@ -83,6 +83,17 @@ uvicorn app.main:app --host 0.0.0.0 --port 8080
 BANK_LOG_FULL_HTTP=true
 ```
 
+Если в тестовом режиме нужно видеть **не замаскированные** чувствительные и персональные данные в bank log, дополнительно включите:
+
+```env
+BANK_LOG_INCLUDE_SENSITIVE=true
+```
+
+Важно:
+- этот режим включается только вместе с `BANK_LOG_FULL_HTTP=true`,
+- он работает только для тестового мерчанта (`BCC_MERCHANT=00000001`),
+- не используйте его на проде и обязательно выключайте после диагностики.
+
 В этом режиме в bank log будут записываться:
 - request URL и method,
 - request headers,
@@ -90,6 +101,57 @@ BANK_LOG_FULL_HTTP=true
 - response status code,
 - response headers,
 - parsed body или raw text ответа банка.
+
+Пример записи в `bcc_bank_exchange.log` для исходящего POST в банк:
+
+```text
+2026-04-16 12:34:56,789 | INFO | bcc-bank-exchange | BANK OUTGOING REQUEST
+{
+  "logged_at": "2026-04-16T12:34:56.789000+00:00",
+  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
+  "payload": {
+    "ORDER": "DEAL-501-20260416123456",
+    "TRTYPE": "1",
+    "AMOUNT": "355.00",
+    "CURRENCY": "398",
+    "TERMINAL": "67XXXXX1",
+    "NONCE": "85f3...",
+    "P_SIGN": "***redacted***",
+    "CLIENT_IP": "***redacted***"
+  },
+  "important_fields": {
+    "ORDER": "DEAL-501-20260416123456",
+    "TRTYPE": "1",
+    "AMOUNT": "355.00",
+    "CURRENCY": "398",
+    "TERMINAL": "67XXXXX1"
+  }
+}
+```
+
+Если включён test-only режим (`BANK_LOG_FULL_HTTP=true`, `BANK_LOG_INCLUDE_SENSITIVE=true`, `BCC_MERCHANT=00000001`), те же поля будут записаны без маскирования.
+
+Отдельно: запись вида `BANK NOTIFY CALLBACK` с `"method": "POST"` — это тоже POST, но **входящий** (банк -> наш сервис), а не исходящий (наш сервис -> банк). Пример:
+
+```text
+2026-04-16 12:36:22,115 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
+{
+  "logged_at": "2026-04-16T12:36:22.115000+00:00",
+  "source": "notify",
+  "method": "POST",
+  "payload": {
+    "ACTION": "0",
+    "RC": "00",
+    "ORDER": "20260415081915000781416514",
+    "TRTYPE": "1"
+  },
+  "important_fields": {
+    "RC": "00",
+    "ORDER": "20260415081915000781416514",
+    "TRTYPE": "1"
+  }
+}
+```
 
 Удобно смотреть лог так:
 
