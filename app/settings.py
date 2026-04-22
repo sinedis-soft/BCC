@@ -17,6 +17,7 @@ class Settings(BaseSettings):
 
     app_name: str = Field("bcc-payments", alias="APP_NAME")
     public_base_url: str = Field("http://127.0.0.1:8080", alias="PUBLIC_BASE_URL")
+    brand_logo_url: str = Field("", alias="BRAND_LOGO_URL")
     db_path: str = Field(str(BASE_DIR / "payments.db"), alias="DB_PATH")
 
     bitrix_base_url: str = Field(..., alias="BITRIX_BASE_URL")
@@ -70,7 +71,6 @@ class Settings(BaseSettings):
     bank_log_backup_count: int = Field(10, alias="BANK_LOG_BACKUP_COUNT")
     bank_log_full_http: bool = Field(False, alias="BANK_LOG_FULL_HTTP")
     bank_log_include_sensitive: bool = Field(False, alias="BANK_LOG_INCLUDE_SENSITIVE")
-
     sqlite_busy_timeout_ms: int = Field(30000, alias="SQLITE_BUSY_TIMEOUT_MS")
 
     @property

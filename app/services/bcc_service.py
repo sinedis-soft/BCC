@@ -170,6 +170,8 @@ def build_bcc_payload_from_session(session: dict, client_ip: str) -> tuple[dict,
 def render_bcc_redirect_form_with_minfo(action_url: str, payload: dict, phone: str) -> str:
     cc, subscriber = split_phone(phone or "")
     hidden_inputs = []
+    logo_url = (getattr(settings, "brand_logo_url", "") or "").strip()
+    logo_html = f'<img src="{escape(logo_url, quote=True)}" alt="Dionis Insurance" class="logo">' if logo_url else ""
 
     for key, value in payload.items():
         safe_key = escape(str(key), quote=True)
@@ -185,36 +187,103 @@ def render_bcc_redirect_form_with_minfo(action_url: str, payload: dict, phone: s
   <title>Переход к оплате</title>
   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
   <style>
+    :root {{
+      --background:#ffffff;
+      --foreground:#171717;
+      --brand-blue:#23376c;
+      --brand-blue-dark:#0f2238;
+      --brand-gold-ui:#ebca45;
+      --brand-blue-text:#23376c;
+      --font-text: system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+      --radius-12: 12px;
+      --shadow-soft: 0 10px 28px rgba(16, 28, 53, 0.12);
+      --gold-grad: linear-gradient(180deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 55%);
+    }}
+    * {{
+      box-sizing: border-box;
+    }}
     body {{
-      font-family: Arial, sans-serif;
-      max-width: 720px;
-      margin: 40px auto;
-      line-height: 1.5;
-      color: #222;
-      padding: 0 16px;
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-text);
+      padding: 24px 16px;
     }}
     .box {{
-      border: 1px solid #ddd;
-      border-radius: 8px;
+      width: 100%;
+      max-width: 720px;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-12);
+      box-shadow: var(--shadow-soft);
       padding: 24px;
+      background: #fff;
+    }}
+    .logo {{
+      width: min(220px, 55vw);
+      display: block;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      object-fit: cover;
+    }}
+    h1 {{
+      margin: 0 0 12px;
+      color: var(--brand-blue-dark);
+      line-height: 1.2;
     }}
     .meta {{
-      color: #666;
+      color: #64748b;
       font-size: 14px;
+      margin: 0 0 16px;
+    }}
+    .actions {{
+      display: flex;
+      justify-content: center;
+      margin-top: 12px;
+    }}
+    .btn-primary {{
+      appearance: none;
+      border: 0;
+      border-radius: var(--radius-12);
+      padding: 12px 18px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+      transition: transform 180ms var(--ease-spring), filter 180ms var(--ease-spring);
+      background-color: var(--brand-gold-ui);
+      background-image: var(--gold-grad);
+      color: var(--brand-blue-text);
+      box-shadow: var(--shadow-soft);
+    }}
+    .btn-primary:hover {{
+      transform: translateY(-1px);
+      filter: brightness(1.02);
+    }}
+    .btn-primary:active {{
+      transform: translateY(0);
     }}
   </style>
 </head>
 <body>
   <div class=\"box\">
+    {logo_html}
     <h1>Переход на страницу оплаты</h1>
     <p>Сейчас вы будете перенаправлены на защищённую страницу банка.</p>
-    <p class=\"meta\">Если переход не выполнится автоматически, нажмите кнопку ниже.</p>
+    <p class=\"meta\">Автопереход произойдёт через 1–2 секунды. Если этого не случилось, нажмите кнопку.</p>
 
     <form id=\"bcc-payment-form\" method=\"post\" action=\"{escape(action_url, quote=True)}\">
       {inputs_html}
       <input type=\"hidden\" name=\"M_INFO\" id=\"m_info\" value=\"\">
+      <div class=\"actions\">
+        <button type=\"submit\" class=\"btn-primary\">Перейти к оплате</button>
+      </div>
       <noscript>
-        <button type=\"submit\">Перейти к оплате</button>
+        <div class=\"actions\">
+          <button type=\"submit\" class=\"btn-primary\">Перейти к оплате</button>
+        </div>
       </noscript>
     </form>
   </div>
@@ -231,7 +300,9 @@ def render_bcc_redirect_form_with_minfo(action_url: str, payload: dict, phone: s
       }};
 
       document.getElementById("m_info").value = btoa(JSON.stringify(mInfo));
-      document.getElementById("bcc-payment-form").submit();
+      setTimeout(function() {{
+        document.getElementById("bcc-payment-form").submit();
+      }}, 1200);
     }})();
   </script>
 </body>

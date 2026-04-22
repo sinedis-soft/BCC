@@ -22,164 +22,107 @@
 
 ```bash
 pip install -r requirements.txt
-```
+2. Configure environment
 
-### 2. Configure environment
+Создайте .env и задайте обязательные переменные сервиса:
 
-Создайте `.env` и задайте обязательные переменные сервиса:
-
-```env
 BITRIX_BASE_URL=
 BITRIX_WEBHOOK_TOKEN=
+BRAND_LOGO_URL=https://pay.dionis-insurance.kz/static/dionis-logo.png
 BCC_MERCHANT=
 BCC_MERCH_NAME=
 BCC_TERMINAL=
 BCC_BACKREF=
 BCC_NOTIFY_URL=
-BCC_MERCH_URL=
+BCC_MERCH_URL=https://dionis-insurance.kz
 BCC_MAC_KEY_HEX=
 BCC_NOTIFY_BASIC_ENABLED=true
 BCC_NOTIFY_BASIC_USERNAME=
 BCC_NOTIFY_BASIC_PASSWORD=
-```
 
-`BCC_NOTIFY_BASIC_USERNAME` и `BCC_NOTIFY_BASIC_PASSWORD` обязательны только когда `BCC_NOTIFY_BASIC_ENABLED=true`.
+BCC_NOTIFY_BASIC_USERNAME и BCC_NOTIFY_BASIC_PASSWORD обязательны только когда BCC_NOTIFY_BASIC_ENABLED=true.
 
-Дополнительно можно настроить `DB_PATH`, `PUBLIC_BASE_URL`, Bitrix field codes и прочие параметры из `app/settings.py`.
+Дополнительно можно настроить DB_PATH, PUBLIC_BASE_URL, Bitrix field codes и прочие параметры из app/settings.py.
 
-Для тестов можно полностью отключить проверку Basic Auth на `/bcc/notify`, установив:
+BRAND_LOGO_URL опционален. Он позволяет показать логотип на redirect-странице перед отправкой в банк и на статусных HTML-страницах (оплачено, ссылка истекла, возврат и т.д.).
 
-```env
+Если сервис публикуется за Nginx на домене:
+
+https://pay.dionis-insurance.kz
+
+то переменные нужно заполнять так:
+
+PUBLIC_BASE_URL=https://pay.dionis-insurance.kz
+BCC_BACKREF=https://pay.dionis-insurance.kz/bcc/backref
+BCC_NOTIFY_URL=https://pay.dionis-insurance.kz/bcc/notify
+BCC_MERCH_URL=https://dionis-insurance.kz
+
+Не добавляйте :443 к HTTPS-адресу.
+
+Для тестов можно отключить Basic Auth на /bcc/notify:
+
 BCC_NOTIFY_BASIC_ENABLED=false
-```
-
-Когда появятся реальные банковские данные, верните `BCC_NOTIFY_BASIC_ENABLED=true` и заполните `BCC_NOTIFY_BASIC_USERNAME`/`BCC_NOTIFY_BASIC_PASSWORD`.
-
-### 3. Run service
-
-```bash
+3. Run service
 uvicorn app.main:app --host 0.0.0.0 --port 8080
-```
+Useful endpoints
+POST /payments/create/{deal_id}
+GET /pay/{token}
+GET /payments/{token}
+POST /payments/refund/{deal_id}
+GET|POST /bcc/notify
+GET|POST /api/v1/payments/create
+GET|POST /api/v1/payments/status
+GET|POST /api/v1/payments/refund
+Bank exchange logging
 
-## Useful endpoints
+Все исходящие запросы в банк и входящие ответы банка пишутся в файл:
 
-- `POST /payments/create/{deal_id}`
-- `GET /pay/{token}`
-- `GET /payments/{token}`
-- `POST /payments/refund/{deal_id}`
-- `GET|POST /bcc/notify`
-- `GET|POST /api/v1/payments/create`
-- `GET|POST /api/v1/payments/status`
-- `GET|POST /api/v1/payments/refund`
+bcc_bank_exchange.log
 
+Для тестов можно включить подробный лог:
 
-## Bank exchange logging
-
-Все исходящие запросы в банк и входящие ответы банка пишутся в файл `BANK_LOG_FILE` (по умолчанию `bcc_bank_exchange.log`).
-
-Для тестов, если нужен максимально подробный HTTP-лог, включите:
-
-```env
 BANK_LOG_FULL_HTTP=true
-```
 
-Если в тестовом режиме нужно видеть **не замаскированные** чувствительные и персональные данные в bank log, дополнительно включите:
+Для диагностики (только тестовый мерчант):
 
-```env
 BANK_LOG_INCLUDE_SENSITIVE=true
-```
 
 Важно:
-- этот режим включается только вместе с `BANK_LOG_FULL_HTTP=true`,
-- он работает только для тестового мерчанта (`BCC_MERCHANT=00000001`),
-- не используйте его на проде и обязательно выключайте после диагностики.
 
-В этом режиме в bank log будут записываться:
-- request URL и method,
-- request headers,
-- request body / form payload,
-- response status code,
-- response headers,
-- parsed body или raw text ответа банка.
+использовать только в тесте,
+не включать в продакшене.
 
-Пример записи в `bcc_bank_exchange.log` для исходящего POST в банк:
+В этом режиме логируются:
 
-```text
-2026-04-16 12:34:56,789 | INFO | bcc-bank-exchange | BANK OUTGOING REQUEST
-{
-  "logged_at": "2026-04-16T12:34:56.789000+00:00",
-  "url": "https://test3ds.bcc.kz:5445/cgi-bin/cgi_link",
-  "payload": {
-    "ORDER": "DEAL-501-20260416123456",
-    "TRTYPE": "1",
-    "AMOUNT": "355.00",
-    "CURRENCY": "398",
-    "TERMINAL": "67XXXXX1",
-    "NONCE": "85f3...",
-    "P_SIGN": "***redacted***",
-    "CLIENT_IP": "***redacted***"
-  },
-  "important_fields": {
-    "ORDER": "DEAL-501-20260416123456",
-    "TRTYPE": "1",
-    "AMOUNT": "355.00",
-    "CURRENCY": "398",
-    "TERMINAL": "67XXXXX1"
-  }
-}
-```
-
-Если включён test-only режим (`BANK_LOG_FULL_HTTP=true`, `BANK_LOG_INCLUDE_SENSITIVE=true`, `BCC_MERCHANT=00000001`), те же поля будут записаны без маскирования.
-Если вы всё равно видите `***redacted***`, проверьте:
-- точно ли одновременно включены `BANK_LOG_FULL_HTTP=true` и `BANK_LOG_INCLUDE_SENSITIVE=true`,
-- точно ли мерчант тестовый (`BCC_MERCHANT=00000001`),
-- поле может приходить уже замаскированным от банка (например, `CARD_MASK`), это не редактирование со стороны сервиса.
-
-Отдельно: запись вида `BANK NOTIFY CALLBACK` с `"method": "POST"` — это тоже POST, но **входящий** (банк -> наш сервис), а не исходящий (наш сервис -> банк). Пример:
-
-```text
-2026-04-16 12:36:22,115 | INFO | bcc-bank-exchange | BANK NOTIFY CALLBACK
-{
-  "logged_at": "2026-04-16T12:36:22.115000+00:00",
-  "source": "notify",
-  "method": "POST",
-  "payload": {
-    "ACTION": "0",
-    "RC": "00",
-    "ORDER": "20260415081915000781416514",
-    "TRTYPE": "1"
-  },
-  "important_fields": {
-    "RC": "00",
-    "ORDER": "20260415081915000781416514",
-    "TRTYPE": "1"
-  }
-}
-```
-
-Удобно смотреть лог так:
-
-```bash
+URL и метод,
+headers,
+payload,
+ответ банка.
+Просмотр логов
 tail -f bcc_bank_exchange.log
-```
-## Рабочие команды
+Рабочие команды
 systemctl restart bcc
 systemctl stop bcc
 systemctl start bcc
 systemctl status bcc
 journalctl -u bcc -f
-## Для деплоя рабочая последовательность такая:
+Деплой
 cd /opt/bcc
 git pull origin main
 systemctl restart bcc
 systemctl status bcc --no-pager -l
 curl -I http://127.0.0.1:8080/docs
-curl -I https://pay.dionis-insurance.kz/docs
 
-## Документация для не-программистов
+(В проде /docs должен отдавать 404 — это нормально.)
 
-Если сервис настраивает, тестирует или сопровождает человек без опыта разработки, используйте подробное описание: [docs/non_developer_guide_ru.md](docs/non_developer_guide_ru.md).
+Документация
+Для не-программистов: docs/non_developer_guide_ru.md
+State machine: docs/payment_state_machine.md
 
-## State machine
+---
 
-См. отдельное описание жизненного цикла платежа: [docs/payment_state_machine.md](docs/payment_state_machine.md).
+После вставки:
+
+```bash
+git add README.md
+git status

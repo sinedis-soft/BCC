@@ -2,5 +2,6 @@ __pycache__/
 *.pyc
 .venv/
 .env
-.log
-.db
+payments.db
+bcc_bank_exchange.log
+*.log

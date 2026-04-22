@@ -447,29 +447,77 @@ def normalize_client_ip(request: Request) -> str:
 
 
 def html_message(title: str, body: str, status_code: int = 200) -> HTMLResponse:
+    logo_url = (getattr(settings, "brand_logo_url", "") or "").strip()
+    logo_html = f'<img src="{escape(logo_url, quote=True)}" alt="Dionis Insurance" class="logo">' if logo_url else ""
+
     html = f"""
     <!doctype html>
-    <html lang=\"ru\">
+    <html lang="ru">
     <head>
-      <meta charset=\"utf-8\">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>{escape(title)}</title>
       <style>
-        body {{
-            font-family: Arial, sans-serif;
-            max-width: 720px;
-            margin: 40px auto;
-            line-height: 1.5;
-            color: #222;
+        :root {{
+          --background: #ffffff;
+          --foreground: #171717;
+          --brand-blue: #23376c;
+          --brand-blue-dark: #0f2238;
+          --brand-gold-ui: #ebca45;
+          --font-text: system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+          --radius-12: 12px;
+          --shadow-soft: 0 10px 28px rgba(16, 28, 53, 0.12);
         }}
+
+        * {{
+          box-sizing: border-box;
+        }}
+
+        body {{
+          margin: 0;
+          min-height: 100vh;
+          display: grid;
+          place-items: center;
+          background: var(--background);
+          color: var(--foreground);
+          font-family: var(--font-text);
+          padding: 24px 16px;
+        }}
+
         .box {{
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 24px;
+          width: 100%;
+          max-width: 720px;
+          border: 1px solid #e2e8f0;
+          border-radius: var(--radius-12);
+          box-shadow: var(--shadow-soft);
+          padding: 24px;
+          background: #fff;
+        }}
+
+        .logo {{
+          width: min(220px, 55vw);
+          display: block;
+          margin: 0 auto 18px;
+          border-radius: 50%;
+          object-fit: cover;
+        }}
+
+        h1 {{
+          margin: 0 0 12px;
+          color: var(--brand-blue-dark);
+          line-height: 1.2;
+        }}
+
+        p {{
+          margin: 0;
+          line-height: 1.6;
+          color: #334155;
         }}
       </style>
     </head>
     <body>
-      <div class=\"box\">
+      <div class="box">
+        {logo_html}
         <h1>{escape(title)}</h1>
         <p>{escape(body)}</p>
       </div>
@@ -564,6 +612,14 @@ def extract_important_bank_fields(data: Any) -> dict:
     return result
 
 
+def should_include_sensitive_bank_log_data() -> bool:
+    return bool(
+        getattr(settings, "bank_log_full_http", False)
+        and getattr(settings, "bank_log_include_sensitive", False)
+        and settings.is_test_merchant
+    )
+
+
 def sanitize_headers_for_log(headers: Any, *, full: bool) -> dict:
     raw_headers = dict(headers or {})
     include_sensitive = should_include_sensitive_bank_log_data()
@@ -578,14 +634,6 @@ def sanitize_headers_for_log(headers: Any, *, full: bool) -> dict:
         elif key.title() in raw_headers:
             selected[key.title()] = raw_headers[key.title()]
     return selected if include_sensitive else redact_for_log(selected)
-
-
-def should_include_sensitive_bank_log_data() -> bool:
-    return bool(
-        getattr(settings, "bank_log_full_http", False)
-        and getattr(settings, "bank_log_include_sensitive", False)
-        and settings.is_test_merchant
-    )
 
 
 def sanitize_httpx_request_for_log(request: httpx.Request) -> dict:
