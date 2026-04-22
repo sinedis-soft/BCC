@@ -22,99 +22,107 @@
 
 ```bash
 pip install -r requirements.txt
-```
+2. Configure environment
 
-### 2. Configure environment
+Создайте .env и задайте обязательные переменные сервиса:
 
-Создайте `.env` и задайте обязательные переменные сервиса:
-
-```env
-BITRIX_BASE_URL=https://your-company.bitrix24.kz
-BITRIX_WEBHOOK_TOKEN=replace_me
+BITRIX_BASE_URL=
+BITRIX_WEBHOOK_TOKEN=
 BRAND_LOGO_URL=https://pay.dionis-insurance.kz/static/dionis-logo.png
-BCC_MERCHANT=replace_me
-BCC_MERCH_NAME=replace_me
-BCC_TERMINAL=replace_me
-BCC_BACKREF=https://dionis-insurance.kz/bcc/backref
-BCC_NOTIFY_URL=https://dionis-insurance.kz/bcc/notify
+BCC_MERCHANT=
+BCC_MERCH_NAME=
+BCC_TERMINAL=
+BCC_BACKREF=
+BCC_NOTIFY_URL=
 BCC_MERCH_URL=https://dionis-insurance.kz
-BCC_MAC_KEY_HEX=replace_me
+BCC_MAC_KEY_HEX=
 BCC_NOTIFY_BASIC_ENABLED=true
-BCC_NOTIFY_BASIC_USERNAME=replace_me
-BCC_NOTIFY_BASIC_PASSWORD=replace_me
-```
+BCC_NOTIFY_BASIC_USERNAME=
+BCC_NOTIFY_BASIC_PASSWORD=
 
-`BCC_NOTIFY_BASIC_USERNAME` и `BCC_NOTIFY_BASIC_PASSWORD` обязательны только когда `BCC_NOTIFY_BASIC_ENABLED=true`.
+BCC_NOTIFY_BASIC_USERNAME и BCC_NOTIFY_BASIC_PASSWORD обязательны только когда BCC_NOTIFY_BASIC_ENABLED=true.
 
-Дополнительно можно настроить `DB_PATH`, `PUBLIC_BASE_URL`, Bitrix field codes и прочие параметры из `app/settings.py`.
+Дополнительно можно настроить DB_PATH, PUBLIC_BASE_URL, Bitrix field codes и прочие параметры из app/settings.py.
 
-`BRAND_LOGO_URL` (опционально) позволяет показать логотип на redirect-странице перед отправкой в банк и на статусных HTML-страницах (`оплачено`, `ссылка истекла`, `возврат` и т.д.).
+BRAND_LOGO_URL опционален. Он позволяет показать логотип на redirect-странице перед отправкой в банк и на статусных HTML-страницах (оплачено, ссылка истекла, возврат и т.д.).
 
-Если сервис публикуется за Nginx на обычном `https://dionis-insurance.kz`, то переменные нужно заполнять публичным доменом без `:443`:
+Если сервис публикуется за Nginx на домене:
 
-```env
-PUBLIC_BASE_URL=https://dionis-insurance.kz
-BCC_BACKREF=https://dionis-insurance.kz/bcc/backref
-BCC_NOTIFY_URL=https://dionis-insurance.kz/bcc/notify
+https://pay.dionis-insurance.kz
+
+то переменные нужно заполнять так:
+
+PUBLIC_BASE_URL=https://pay.dionis-insurance.kz
+BCC_BACKREF=https://pay.dionis-insurance.kz/bcc/backref
+BCC_NOTIFY_URL=https://pay.dionis-insurance.kz/bcc/notify
 BCC_MERCH_URL=https://dionis-insurance.kz
-```
 
-Не используйте временный devtunnels URL и не добавляйте `:443` к HTTPS-адресу, если сервис доступен на стандартном порту 443 через reverse proxy.
+Не добавляйте :443 к HTTPS-адресу.
 
-Для тестов можно полностью отключить проверку Basic Auth на `/bcc/notify`, установив:
+Для тестов можно отключить Basic Auth на /bcc/notify:
 
-```env
 BCC_NOTIFY_BASIC_ENABLED=false
-```
-
-Когда появятся реальные банковские данные, верните `BCC_NOTIFY_BASIC_ENABLED=true` и заполните `BCC_NOTIFY_BASIC_USERNAME`/`BCC_NOTIFY_BASIC_PASSWORD`.
-
-### 3. Run service
-
-```bash
+3. Run service
 uvicorn app.main:app --host 0.0.0.0 --port 8080
-```
+Useful endpoints
+POST /payments/create/{deal_id}
+GET /pay/{token}
+GET /payments/{token}
+POST /payments/refund/{deal_id}
+GET|POST /bcc/notify
+GET|POST /api/v1/payments/create
+GET|POST /api/v1/payments/status
+GET|POST /api/v1/payments/refund
+Bank exchange logging
 
-## Useful endpoints
+Все исходящие запросы в банк и входящие ответы банка пишутся в файл:
 
-- `POST /payments/create/{deal_id}`
-- `GET /pay/{token}`
-- `GET /payments/{token}`
-- `POST /payments/refund/{deal_id}`
-- `GET|POST /bcc/notify`
-- `GET|POST /api/v1/payments/create`
-- `GET|POST /api/v1/payments/status`
-- `GET|POST /api/v1/payments/refund`
+bcc_bank_exchange.log
 
+Для тестов можно включить подробный лог:
 
-## Bank exchange logging
-
-Все исходящие запросы в банк и входящие ответы банка пишутся в файл `BANK_LOG_FILE` (по умолчанию `bcc_bank_exchange.log`).
-
-Для тестов, если нужен максимально подробный HTTP-лог, включите:
-
-```env
 BANK_LOG_FULL_HTTP=true
-```
 
-В этом режиме в bank log будут записываться:
-- request URL и method,
-- request headers,
-- request body / form payload,
-- response status code,
-- response headers,
-- parsed body или raw text ответа банка.
+Для диагностики (только тестовый мерчант):
 
-Удобно смотреть лог так:
+BANK_LOG_INCLUDE_SENSITIVE=true
+
+Важно:
+
+использовать только в тесте,
+не включать в продакшене.
+
+В этом режиме логируются:
+
+URL и метод,
+headers,
+payload,
+ответ банка.
+Просмотр логов
+tail -f bcc_bank_exchange.log
+Рабочие команды
+systemctl restart bcc
+systemctl stop bcc
+systemctl start bcc
+systemctl status bcc
+journalctl -u bcc -f
+Деплой
+cd /opt/bcc
+git pull origin main
+systemctl restart bcc
+systemctl status bcc --no-pager -l
+curl -I http://127.0.0.1:8080/docs
+
+(В проде /docs должен отдавать 404 — это нормально.)
+
+Документация
+Для не-программистов: docs/non_developer_guide_ru.md
+State machine: docs/payment_state_machine.md
+
+---
+
+После вставки:
 
 ```bash
-tail -f bcc_bank_exchange.log
-```
-
-## Документация для не-программистов
-
-Если сервис настраивает, тестирует или сопровождает человек без опыта разработки, используйте подробное описание: [docs/non_developer_guide_ru.md](docs/non_developer_guide_ru.md).
-
-## State machine
-
-См. отдельное описание жизненного цикла платежа: [docs/payment_state_machine.md](docs/payment_state_machine.md).
+git add README.md
+git status

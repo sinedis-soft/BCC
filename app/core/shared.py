@@ -452,10 +452,10 @@ def html_message(title: str, body: str, status_code: int = 200) -> HTMLResponse:
 
     html = f"""
     <!doctype html>
-    <html lang=\"ru\">
+    <html lang="ru">
     <head>
-      <meta charset=\"utf-8\">
-      <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>{escape(title)}</title>
       <style>
         :root {{
@@ -464,61 +464,59 @@ def html_message(title: str, body: str, status_code: int = 200) -> HTMLResponse:
           --brand-blue: #23376c;
           --brand-blue-dark: #0f2238;
           --brand-gold-ui: #ebca45;
-          --brand-gold-text: #8a6a2f;
           --font-text: system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
-          --font-accent: system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
-          --gold-grad: linear-gradient(180deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 55%);
-          --blue-grad: linear-gradient(180deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 60%);
-          --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
           --radius-12: 12px;
           --shadow-soft: 0 10px 28px rgba(16, 28, 53, 0.12);
         }}
 
         * {{
-            box-sizing: border-box;
+          box-sizing: border-box;
         }}
 
         body {{
-            margin: 0;
-            min-height: 100vh;
-            display: grid;
-            place-items: center;
-            background: var(--background);
-            color: var(--foreground);
-            font-family: var(--font-text);
-            padding: 24px 16px;
+          margin: 0;
+          min-height: 100vh;
+          display: grid;
+          place-items: center;
+          background: var(--background);
+          color: var(--foreground);
+          font-family: var(--font-text);
+          padding: 24px 16px;
         }}
+
         .box {{
-            width: 100%;
-            max-width: 720px;
-            border: 1px solid #e2e8f0;
-            border-radius: var(--radius-12);
-            box-shadow: var(--shadow-soft);
-            padding: 24px;
-            background: #fff;
+          width: 100%;
+          max-width: 720px;
+          border: 1px solid #e2e8f0;
+          border-radius: var(--radius-12);
+          box-shadow: var(--shadow-soft);
+          padding: 24px;
+          background: #fff;
         }}
+
         .logo {{
-            width: min(220px, 55vw);
-            display: block;
-            margin: 0 auto 18px;
-            border-radius: 50%;
-            object-fit: cover;
+          width: min(220px, 55vw);
+          display: block;
+          margin: 0 auto 18px;
+          border-radius: 50%;
+          object-fit: cover;
         }}
+
         h1 {{
-            margin: 0 0 12px;
-            color: var(--brand-blue-dark);
-            font-family: var(--font-accent);
-            line-height: 1.2;
+          margin: 0 0 12px;
+          color: var(--brand-blue-dark);
+          line-height: 1.2;
         }}
+
         p {{
-            margin: 0;
-            line-height: 1.6;
-            color: #334155;
+          margin: 0;
+          line-height: 1.6;
+          color: #334155;
         }}
       </style>
     </head>
     <body>
-      <div class=\"box\">
+      <div class="box">
         {logo_html}
         <h1>{escape(title)}</h1>
         <p>{escape(body)}</p>
@@ -614,10 +612,20 @@ def extract_important_bank_fields(data: Any) -> dict:
     return result
 
 
+def should_include_sensitive_bank_log_data() -> bool:
+    return bool(
+        getattr(settings, "bank_log_full_http", False)
+        and getattr(settings, "bank_log_include_sensitive", False)
+        and settings.is_test_merchant
+    )
+
+
 def sanitize_headers_for_log(headers: Any, *, full: bool) -> dict:
     raw_headers = dict(headers or {})
+    include_sensitive = should_include_sensitive_bank_log_data()
+
     if full:
-        return redact_for_log(raw_headers)
+        return raw_headers if include_sensitive else redact_for_log(raw_headers)
 
     selected = {}
     for key in ("content-type", "location", "authorization"):
@@ -625,11 +633,12 @@ def sanitize_headers_for_log(headers: Any, *, full: bool) -> dict:
             selected[key] = raw_headers[key]
         elif key.title() in raw_headers:
             selected[key.title()] = raw_headers[key.title()]
-    return redact_for_log(selected)
+    return selected if include_sensitive else redact_for_log(selected)
 
 
 def sanitize_httpx_request_for_log(request: httpx.Request) -> dict:
     full_http = bool(getattr(settings, "bank_log_full_http", False))
+    include_sensitive = should_include_sensitive_bank_log_data()
     body_bytes = request.content or b""
     text = body_bytes.decode("utf-8", errors="replace") if isinstance(body_bytes, (bytes, bytearray)) else str(body_bytes or "")
     parsed_kv = parse_key_value_text(text) if text else None
@@ -643,7 +652,7 @@ def sanitize_httpx_request_for_log(request: httpx.Request) -> dict:
 
     if parsed_kv is not None:
         meta["body_kind"] = "key_value"
-        meta["parsed_body"] = redact_for_log(parsed_kv)
+        meta["parsed_body"] = parsed_kv if include_sensitive else redact_for_log(parsed_kv)
         meta["important_fields"] = extract_important_bank_fields(parsed_kv)
         if full_http:
             meta["raw_text"] = text
@@ -660,6 +669,7 @@ def sanitize_httpx_request_for_log(request: httpx.Request) -> dict:
 
 def sanitize_bank_response_for_log(response: httpx.Response) -> dict:
     full_http = bool(getattr(settings, "bank_log_full_http", False))
+    include_sensitive = should_include_sensitive_bank_log_data()
     content_type = response.headers.get("content-type", "")
     text = response.text or ""
     parsed_json = None
@@ -684,18 +694,18 @@ def sanitize_bank_response_for_log(response: httpx.Response) -> dict:
 
     if isinstance(parsed_json, dict):
         meta["body_kind"] = "json"
-        meta["parsed_body"] = redact_for_log(parsed_json)
+        meta["parsed_body"] = parsed_json if include_sensitive else redact_for_log(parsed_json)
         meta["important_fields"] = extract_important_bank_fields(parsed_json)
         return meta
 
     if isinstance(parsed_json, list):
         meta["body_kind"] = "json_list"
-        meta["parsed_body"] = redact_for_log(parsed_json)
+        meta["parsed_body"] = parsed_json if include_sensitive else redact_for_log(parsed_json)
         return meta
 
     if parsed_kv is not None:
         meta["body_kind"] = "key_value"
-        meta["parsed_body"] = redact_for_log(parsed_kv)
+        meta["parsed_body"] = parsed_kv if include_sensitive else redact_for_log(parsed_kv)
         meta["important_fields"] = extract_important_bank_fields(parsed_kv)
         return meta
 
@@ -716,7 +726,8 @@ def sanitize_bank_response_for_log(response: httpx.Response) -> dict:
 
 def bank_log_json(title: str, data: Any, level: int = logging.INFO) -> None:
     try:
-        safe_data = redact_for_log(data)
+        include_sensitive = should_include_sensitive_bank_log_data()
+        safe_data = data if include_sensitive else redact_for_log(data)
         if isinstance(safe_data, (dict, list, tuple)):
             payload = json.dumps(safe_data, ensure_ascii=False, indent=2, default=str)
         else:
@@ -758,7 +769,7 @@ def bank_log_incoming_response(url: str, response: httpx.Response) -> None:
 
 def bank_log_notify_callback(data: dict, method: str) -> None:
     safe_payload = dict(data)
-    if "Authorization" in safe_payload:
+    if "Authorization" in safe_payload and not should_include_sensitive_bank_log_data():
         safe_payload["Authorization"] = "***redacted***"
 
     bank_log_json(

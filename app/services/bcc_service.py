@@ -193,14 +193,12 @@ def render_bcc_redirect_form_with_minfo(action_url: str, payload: dict, phone: s
       --brand-blue:#23376c;
       --brand-blue-dark:#0f2238;
       --brand-gold-ui:#ebca45;
-      --brand-gold-text:#8a6a2f;
+      --brand-blue-text:#23376c;
       --font-text: system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
-      --font-accent: system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
-      --gold-grad: linear-gradient(180deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 55%);
-      --blue-grad: linear-gradient(180deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 60%);
       --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
       --radius-12: 12px;
       --shadow-soft: 0 10px 28px rgba(16, 28, 53, 0.12);
+      --gold-grad: linear-gradient(180deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 55%);
     }}
     * {{
       box-sizing: border-box;
@@ -234,7 +232,6 @@ def render_bcc_redirect_form_with_minfo(action_url: str, payload: dict, phone: s
     h1 {{
       margin: 0 0 12px;
       color: var(--brand-blue-dark);
-      font-family: var(--font-accent);
       line-height: 1.2;
     }}
     .meta {{
@@ -258,7 +255,7 @@ def render_bcc_redirect_form_with_minfo(action_url: str, payload: dict, phone: s
       transition: transform 180ms var(--ease-spring), filter 180ms var(--ease-spring);
       background-color: var(--brand-gold-ui);
       background-image: var(--gold-grad);
-      color: var(--brand-blue);
+      color: var(--brand-blue-text);
       box-shadow: var(--shadow-soft);
     }}
     .btn-primary:hover {{
@@ -283,6 +280,11 @@ def render_bcc_redirect_form_with_minfo(action_url: str, payload: dict, phone: s
       <div class=\"actions\">
         <button type=\"submit\" class=\"btn-primary\">Перейти к оплате</button>
       </div>
+      <noscript>
+        <div class=\"actions\">
+          <button type=\"submit\" class=\"btn-primary\">Перейти к оплате</button>
+        </div>
+      </noscript>
     </form>
   </div>
 

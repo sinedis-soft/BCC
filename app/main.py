@@ -98,6 +98,7 @@ async def startup_event():
             "backref": settings.backref,
             "notify_basic_enabled": settings.notify_basic_enabled,
             "bank_log_full_http": settings.bank_log_full_http,
+            "bank_log_include_sensitive": settings.bank_log_include_sensitive,
         },
     )
 
@@ -112,5 +113,6 @@ async def startup_event():
             "backref": settings.backref,
             "notify_basic_enabled": settings.notify_basic_enabled,
             "bank_log_full_http": settings.bank_log_full_http,
+            "bank_log_include_sensitive": settings.bank_log_include_sensitive,
         },
     )
